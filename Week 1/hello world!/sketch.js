@@ -36,5 +36,8 @@ function draw() {
 
  fill(220)
  square(55, 475, 75)
- triangle(100, 56, 76, 86, 68, 33)
+ triangle(25, 480, 90, 440, 150, 480)
+ //huis hierboven
+ 
 }
+
