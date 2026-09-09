@@ -296,7 +296,132 @@ function draw() {
  square(450,700,25);
  square(450,675,25);
  square(475,675,25);
- square(450,675,25);
+ square(500,725,25);
+ square(500,700,25);
+ square(500,750,25);
+ square(500,775,25);
+ square(450,775,25);
+ square(475,800,25);
+ square(450,825,25);
+ square(450,850,25);
+ square(475,875,25);
+ square(500,900,25);
+ square(500,925,25);
+ square(500,950,25);
+ square(500,975,25);
+ square(500,1000,25);
+ square(475,1025,25);
+ square(450,1025,25);
+ square(450,1050,25);
+ square(450,1075,25);
+ square(450,1100,25);
+ square(425,1100,25);
+ square(400,1100,25);
+ square(400,1125,25);
+ square(375,1125,25);
+ square(350,1125,25);
+ square(325,1125,25);
+ square(300,1125,25);
+ square(275,1125,25);
+ square(250,1125,25);
+ square(175,825,25);
+ square(200,850,25);
+ square(175,850,25);
+ square(225,875,25);
+ square(425,800,25);
+ square(425,850,25);
+ square(400,875,25);
+ square(375,900,25);
+ square(350,900,25);
+ square(350,875,25);
+ square(325,925,25);
+ square(425,925,25);
+ square(450,900,25);
+ square(425,950,25);
+ square(425,975,25);
+ square(450,1000,25);
+ square(450,950,25);
+ square(350,825,25);
+ square(275,825,25);
+ square(350,1000,25);
+ square(425,1025,25);
+ square(400,1050,25);
+ square(375,1050,25);
+ square(350,1075,25);
+ square(325,1075,25);
+ square(300,1075,25);
+ square(275,1075,25);
+ square(250,1100,25);
+ square(275,1100,25);
+ square(300,1100,25);
+ square(325,1100,25);
+ square(350,1100,25);
+ square(375,1100,25);
+ square(425,1075,25);
+
+ fill('#59a100')
+ square(375,650,25);
+ square(400,650,25);
+ square(350,675,25);
+ square(350,625,25);
+ square(300,625,25);
+ square(275,625,25);
+ square(250,650,25);
+ square(275,650,25);
+ square(275,675,25);
+ square(300,675,25);
+ square(425,675,25);
+ square(425,700,25);
+
+ fill('#97d46b')
+ square(325,675,25);
+ square(325,650,25);
+ square(325,625,25);
+ square(350,650,25);
+ square(300,650,25);
+
+ fill('orange')
+ square(325,700,25);
+ square(300,700,25);
+ square(350,700,25);
+ square(275,700,25);
+ square(250,675,25);
+ square(375,675,25);
+
+ fill('#ce1186')
+ square(275,750,25);
+ square(375,750,25);
+ square(325,750,25);
+ square(400,750,25);
+ square(400,725,25);
+ square(375,725,25);
+ square(350,750,25);
+ square(300,750,25);
+ square(225,750,25);
+ square(250,750,25);
+ square(250,725,25);
+ square(225,725,25);
+ square(200,725,25);
+ square(200,700,25);
+
+
+ fill('#eeb389')
+ square(150,700,25);
+ square(150,725,25);
+ square(175,750,25);
+ square(475,725,25);
+ square(475,700,25);
+ square(450,750,25);
+ square(300,850,25);
+ square(325,850,25);
+ square(325,825,25);
+ square(300,825,25);
+ square(350,850,25);
+ square(375,850,25);
+ square(250,850,25);
+ square(275,850,25);
+ square(300,875,25);
+ square(325,875,25);
 
  //link
 }
