@@ -1,17 +1,20 @@
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(1000, 1600);
 
 }
 
 function draw() {
   stroke(1);
   background(220);
+  strokeWeight(1)
  textSize(32)
  fill(0)
  text("mark-jan kuijper", 10, 40)
  //first zet the size of the text
  //then you put the text in
  //and the coordinates of it
+
+ strokeWeight(1)
 
  fill(255, 0, 0);
  rect(20, 60, 200, 50)
@@ -20,6 +23,8 @@ function draw() {
  fill(0, 0, 255)
  rect(20, 160, 200, 50);
  //boven hier is de flag
+
+ strokeWeight(1)
 
  fill(0)
  square(20, 250, 50)
@@ -40,6 +45,8 @@ function draw() {
  triangle(25, 480, 90, 440, 150, 480)
  //huis hierboven
  
+ strokeWeight(1)
+ 
  fill(200)
  rect(280, 300, 50, -200);
  rect(292.5, 300, 25, 60);
@@ -52,7 +59,7 @@ function draw() {
  //boven hier stoplicht
 
 
- 
+ strokeWeight(5)
 
  fill(255);
  square(250, 425, 65);
@@ -61,13 +68,14 @@ function draw() {
  //boven hier een dobbelsteen
 
 
+ strokeWeight(1)
 
  textSize(45);
  fill(0);
  text('Mario',500,90)
 
 
- noStroke(0)
+ 
 
  fill('red');
  square(600,100,25);
@@ -240,8 +248,56 @@ function draw() {
  square(575,450,25);
  square(625,450,25);
 
-
-
  // mario
+
+ fill('black')
+ square(300,600,25);
+ square(325,600,25);
+ square(350,600,25);
+ square(275,600,25);
+ square(250,625,25);
+ square(225,650,25);
+ square(225,675,25);
+ square(200,675,25);
+ square(225,700,25);
+ square(250,700,25);
+ square(275,725,25);
+ square(300,725,25);
+ square(325,725,25);
+ square(350,725,25);
+ square(375,700,25);
+ square(400,700,25);
+ square(400,675,25);
+ square(400,625,25);
+ square(375,625,25);
+ square(425,650,25);
+ square(175,700,25);
+ square(150,675,25);
+ square(125,700,25);
+ square(125,750,25);
+ square(125,775,25);
+ square(125,725,25);
+ square(150,800,25);
+ square(175,775,25);
+ square(200,750,25);
+ square(175,725,25);
+ square(225,775,25);
+ square(200,800,25);
+ square(250,775,25);
+ square(275,775,25);
+ square(300,775,25);
+ square(325,775,25);
+ square(350,775,25);
+ square(375,775,25);
+ square(400,775,25);
+ square(425,750,25);
+ square(425,725,25);
+ square(450,725,25);
+ square(450,700,25);
+ square(450,675,25);
+ square(475,675,25);
+ square(450,675,25);
+
+ //link
 }
 
