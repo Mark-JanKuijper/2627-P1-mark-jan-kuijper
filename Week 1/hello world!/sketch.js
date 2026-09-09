@@ -62,6 +62,13 @@ function draw() {
 
 
 
+ textSize(45);
+ fill(0);
+ text('Mario',500,90)
+
+
+ noStroke(0)
+
  fill('red');
  square(600,100,25);
  square(575,100,25);
@@ -179,6 +186,61 @@ function draw() {
  square(425,300,25);
  square(450,275,25);
  square(475,275,25);
+ 
+ fill('black')
+ square(600,150,25);
+ square(600,175,25);
+ square(625,200,25);
+ square(600,225,25);
+ square(625,225,25);
+ square(650,225,25);
+ square(675,225,25);
+
+ fill('#73432c')
+ square(450,225,25);
+ square(425,225,25);
+ square(425,200,25);
+ square(425,175,25);
+ square(450,150,25);
+ square(475,150,25);
+ square(500,150,25);
+ square(475,175,25);
+ square(475,200,25);
+ square(500,200,25);
+
+ fill('#ffe1c2')
+ square(675,350,25);
+ square(675,375,25);
+ square(675,400,25);
+ square(650,350,25);
+ square(650,375,25);
+ square(650,400,25);
+ square(625,375,25);
+ square(400,400,25);
+ square(425,400,25);
+ square(400,375,25);
+ square(400,350,25);
+ square(425,350,25);
+ square(425,375,25);
+ square(450,375,25);
+
+ fill('#73432c')
+ square(450,450,25);
+ square(475,450,25);
+ square(425,450,25);
+ square(450,475,25);
+ square(425,475,25);
+ square(475,475,25);
+ square(400,475,25);
+ square(600,475,25);
+ square(575,475,25);
+ square(625,475,25);
+ square(650,475,25);
+ square(600,450,25);
+ square(575,450,25);
+ square(625,450,25);
+
+
 
  // mario
 }
