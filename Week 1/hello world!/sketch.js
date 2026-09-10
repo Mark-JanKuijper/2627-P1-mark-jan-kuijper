@@ -9,12 +9,17 @@ function draw() {
   strokeWeight(1)
  textSize(32)
  fill(0)
+
+ text('1',250,30)
  text("mark-jan kuijper", 10, 40)
  //first zet the size of the text
  //then you put the text in
  //and the coordinates of it
 
  strokeWeight(1)
+
+ textSize(40)
+ text('2',220,200)
 
  fill(255, 0, 0);
  rect(20, 60, 200, 50)
@@ -25,6 +30,10 @@ function draw() {
  //boven hier is de flag
 
  strokeWeight(1)
+
+ fill(0)
+ textSize(30)
+ text('3',180,300)
 
  fill(0)
  square(20, 250, 50)
@@ -40,12 +49,20 @@ function draw() {
  square(70, 350, 50)
  //boven hier is het schakenbord
 
+ fill(0)
+ textSize(30)
+ text('4',150,500)
+
  fill(220)
  square(55, 475, 75)
  triangle(25, 480, 90, 440, 150, 480)
  //huis hierboven
  
- strokeWeight(1)
+ textSize(30)
+ fill(0)
+ text('5',300,90)
+
+ 
  
  fill(200)
  rect(280, 300, 50, -200);
@@ -59,16 +76,28 @@ function draw() {
  //boven hier stoplicht
 
 
+ 
+
+ textSize(30)
+ fill(0)
+ text('6',275,420)
+
  strokeWeight(5)
 
  fill(255);
- square(250, 425, 65);
+ square(250, 425, 65, 5);
+ // if you put the normal 3 digits
+ // you can add a last digit wich
+ // decides how rounded it is
  fill(0);
  circle(282,456,25);
  //boven hier een dobbelsteen
 
-
  strokeWeight(1)
+ textSize(30)
+ text('7',550,60)
+
+ strokeWeight(0)
 
  textSize(45);
  fill(0);
@@ -250,6 +279,14 @@ function draw() {
 
  // mario
 
+ strokeWeight(1)
+ fill(0)
+ textSize(25)
+ text('Link',300,575)
+ text('8',350,575)
+
+ strokeWeight(0)
+
  fill('black')
  square(300,600,25);
  square(325,600,25);
@@ -422,6 +459,154 @@ function draw() {
  square(275,850,25);
  square(300,875,25);
  square(325,875,25);
+ square(475,950,25);
+ square(475,975,25);
+ square(475,1000,25);
+ square(450,975,25);
+ square(425,775,25);
+ square(200,775,25);
+
+
+ fill('#946643')
+ square(150,775,25);
+ square(150,750,25);
+ square(175,800,25);
+ square(450,800,25);
+ square(475,775,25);
+ square(475,750,25);
+ square(225,800,25);
+ square(225,850,25);
+ square(225,825,25);
+ square(200,825,25);
+ square(250,875,25);
+ square(300,800,25);
+ square(325,800,25);
+ square(400,800,25);
+ square(400,825,25);
+ square(400,850,25);
+ square(425,825,25);
+ square(375,875,25);
+ square(325,900,25);
+ square(475,900,25);
+ square(475,925,25);
+ square(450,925,25);
+
+ fill('#4c8866')
+ square(425,900,25);
+ square(425,875,25);
+ square(425,900,25);
+ square(400,900,25);
+ square(400,925,25)
+ square(400,950,25)
+ square(400,975,25)
+ square(375,975,25)
+ square(350,975,25)
+ square(350,925,25)
+ square(425,1000,25)
+ square(400,1025,25)
+ square(375,1025,25)
+ square(350,1050,25)
+ square(325,1050,25)
+ square(300,1050,25)
+ square(200,875,25)
+
+ fill('gray')
+ square(300,900,25)
+ square(275,875,25)
+ square(250,900,25)
+ square(225,900,25)
+ square(200,900,25)
+ square(175,900,25)
+ square(150,875,25)
+ square(125,900,25)
+ square(125,925,25)
+ square(125,950,25)
+ square(125,975,25)
+ square(125,1000,25)
+ square(125,1025,25)
+ square(150,1050,25)
+ square(175,1075,25)
+ square(200,1100,25)
+ square(225,1100,25)
+ square(250,1075,25)
+ square(275,1050,25)
+ square(300,1025,25)
+ square(300,1000,25)
+ square(300,975,25)
+ square(300,950,25)
+ square(300,925,25)
+
+ fill(255)
+ square(275,800,25)
+ square(250,800,25)
+ square(250,825,25)
+ square(350,800,25)
+ square(375,800,25)
+ square(375,825,25)
+ square(275,900,25)
+ square(150,900,25)
+ square(275,925,25)
+ square(275,950,25)
+ square(275,975,25)
+ square(275,1000,25)
+ square(275,1025,25)
+ square(250,1050,25)
+ square(225,1075,25)
+ square(200,1075,25)
+ square(175,1050,25)
+ square(150,1025,25)
+ square(150,1000,25)
+ square(150,975,25)
+ square(150,950,25)
+ square(150,925,25)
+ square(175,925,25)
+ square(200,925,25)
+ square(225,925,25)
+ square(250,925,25)
+
+ fill('blue')
+ square(175,950,25)
+ square(200,950,25)
+ square(225,950,25)
+ square(250,950,25)
+ square(250,975,25)
+ square(250,1000,25)
+ square(250,1025,25)
+ square(175,975,25)
+ square(175,1000,25)
+ square(175,1025,25)
+ square(200,1050,25)
+ square(225,1050,25)
+
+ fill('#768ee8')
+ square(200,1025,25)
+ square(225,1025,25)
+ square(200,1000,25)
+ square(225,1000,25)
+ square(200,975,25)
+ square(225,975,25)
+
+ fill('lightgreen')
+ square(450,875,25)
+ square(375,925,25)
+ square(375,950,25)
+ square(350,950,25)
+ square(325,975,25)
+ square(325,950,25)
+
+ fill('yellow')
+ square(325,1000,25)
+ square(375,1000,25)
+ square(400,1000,25)
+ square(350,1025,25)
+ square(325,1025,25)
+
+ fill('#c81822')
+ square(425,1050,25)
+ square(375,1075,25)
+
+ fill('#eb8205')
+ square(400,1075,25)
 
  //link
 }
