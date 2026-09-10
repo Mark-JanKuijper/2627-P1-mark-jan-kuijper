@@ -103,7 +103,6 @@ function draw() {
  fill(0);
  text('Mario',500,90)
 
-
  
 
  fill('red');
@@ -277,7 +276,7 @@ function draw() {
  square(575,450,25);
  square(625,450,25);
 
- // mario
+ // mario hier boven
 
  strokeWeight(1)
  fill(0)
@@ -608,6 +607,6 @@ function draw() {
  fill('#eb8205')
  square(400,1075,25)
 
- //link
+ //link hierboven
 }
 
