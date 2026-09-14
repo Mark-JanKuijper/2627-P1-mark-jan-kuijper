@@ -22,18 +22,30 @@ function draw() {
  rect(0,540,800,100)
  //grass^
 
+ fill(100)
+ ellipse(60,35,80,60)
+ ellipse(80,60,80,60)
+ ellipse(40,55,80,60)
 
+ ellipse(90,145,80,60)
+ ellipse(100,175,80,60)
+ ellipse(60,155,80,60)
+
+ ellipse(200,45,80,60)
+ ellipse(210,60,80,60)
+ ellipse(185,55,80,60)
+ //shadow of clouds^
 
  fill(255)
  ellipse(60,40,80,60)
  ellipse(80,65,80,60)
  ellipse(40,60,80,60)
  
-  ellipse(90,150,80,60)
+ ellipse(90,150,80,60)
  ellipse(100,180,80,60)
  ellipse(60,160,80,60)
 
-  ellipse(200,50,80,60)
+ ellipse(200,50,80,60)
  ellipse(210,65,80,60)
  ellipse(185,60,80,60)
 
