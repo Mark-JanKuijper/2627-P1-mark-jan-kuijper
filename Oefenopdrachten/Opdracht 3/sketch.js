@@ -37,7 +37,7 @@ function draw() {
  } else if(score<50){
 
   fill(255,0,0)
-  text("GOFUCKYOURSELF",50,50)
+  text("onvoldoende",50,50)
  }
 
 }

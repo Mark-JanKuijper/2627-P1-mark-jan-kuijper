@@ -43,20 +43,20 @@ function draw() {
 
  //sun^
 
- cloudX=cloudX+2
- cloudX1=cloudX1+1
- cloudX2=cloudX2+3
+ cloudX=cloudX-2
+ cloudX1=cloudX1-1
+ cloudX2=cloudX2-3
 
- if(cloudX > 600){
-  cloudX = -450
+ if(cloudX < -600){
+  cloudX = 530
  }
 
- if(cloudX1 > 600){
-  cloudX1 = -350
+ if(cloudX1 < -600){
+  cloudX1 = 850
  }
 
- if(cloudX2 > 600){
-  cloudX2 = -350
+ if(cloudX2 < -600){
+  cloudX2 = 750
  }
 
 
@@ -88,6 +88,7 @@ function draw() {
  ellipse(cloudX+355,60,80,60)
 
  //cloud^
+
 
  fill(60)
  rect(0,545,800,70)
@@ -142,7 +143,22 @@ function draw() {
  circle(357,470,50)
 
  //leaves for tree^
+ fill(160)
 
+ rect(302.5,437.5,35,65)
+ rect(310,500,20,30)
+
+strokeWeight(1)
+ fill("green")
+ circle(320,450,17.5)
+
+ fill("orange")
+ circle(320,470,17.5)
+ fill("red")
+ circle(320,490,17.5)
+
+ //stoplight
+ strokeWeight(0)
  car1 = car1 +2.5
  if(car1>750){
   car1=-300
@@ -161,7 +177,6 @@ function draw() {
  circle(car1+90,560,22)
  //car 1
  fill(10,40,150)
- 
  rect(car2+40,540,50,40,10)
  rect(car2+40,550,60,40,10)
  fill(0)
