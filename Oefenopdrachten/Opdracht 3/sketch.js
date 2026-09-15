@@ -17,7 +17,7 @@ function draw() {
   //another example.
   //if(square>=brick)
   //{do_answer}. another thing you can add is an else statement
-  //else(saynothing)
+  //else(saynothing) this does things if the if statement not asnwered is
 
 
  } else if(score <= 89 && score >= 70){
