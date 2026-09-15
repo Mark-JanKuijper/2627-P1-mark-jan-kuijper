@@ -2,6 +2,16 @@ function setup() {
   createCanvas(800, 600);
 }
 
+let sonX = 0;
+let cloudX = 0;
+let cloudX1 = 0;
+let cloudX2 = 0;
+let car1 = 0;
+let car2 = 0;
+let car3 = 0;
+
+//here is all the variables
+
 function draw() {
   background(0,167,210);
 
@@ -22,32 +32,60 @@ function draw() {
  rect(0,540,800,100)
  //grass^
 
+ sonX = sonX + 1
+
+ if(sonX > 550){
+  sonX = -500
+ }
+
+ fill("yellow")
+ circle(sonX + 300,200,100)
+
+ //sun^
+
+ cloudX=cloudX+2
+ cloudX1=cloudX1+1
+ cloudX2=cloudX2+3
+
+ if(cloudX > 600){
+  cloudX = -450
+ }
+
+ if(cloudX1 > 600){
+  cloudX1 = -350
+ }
+
+ if(cloudX2 > 600){
+  cloudX2 = -350
+ }
+
+
  fill(100)
- ellipse(60,35,80,60)
- ellipse(80,60,80,60)
- ellipse(40,55,80,60)
+ ellipse(cloudX1+60,35,80,60)
+ ellipse(cloudX1+80,60,80,60)
+ ellipse(cloudX1+40,55,80,60)
 
- ellipse(90,145,80,60)
- ellipse(100,175,80,60)
- ellipse(60,155,80,60)
+ ellipse(cloudX2+190,145,80,60)
+ ellipse(cloudX2+200,175,80,60)
+ ellipse(cloudX2+160,155,80,60)
 
- ellipse(200,45,80,60)
- ellipse(210,60,80,60)
- ellipse(185,55,80,60)
+ ellipse(cloudX+400,45,80,60)
+ ellipse(cloudX+310,60,80,60)
+ ellipse(cloudX+355,55,80,60)
  //shadow of clouds^
 
  fill(255)
- ellipse(60,40,80,60)
- ellipse(80,65,80,60)
- ellipse(40,60,80,60)
+ ellipse(cloudX1+60,40,80,60)
+ ellipse(cloudX1+80,65,80,60)
+ ellipse(cloudX1+40,60,80,60)
  
- ellipse(90,150,80,60)
- ellipse(100,180,80,60)
- ellipse(60,160,80,60)
+ ellipse(cloudX2+190,150,80,60)
+ ellipse(cloudX2+200,180,80,60)
+ ellipse(cloudX2+160,160,80,60)
 
- ellipse(200,50,80,60)
- ellipse(210,65,80,60)
- ellipse(185,60,80,60)
+ ellipse(cloudX+400,50,80,60)
+ ellipse(cloudX+310,65,80,60)
+ ellipse(cloudX+355,60,80,60)
 
  //cloud^
 
@@ -91,6 +129,49 @@ function draw() {
 
  rect(350,465,15,65)
 
- rect(250,540,15,65)
+ 
  //tree^
+ fill("darkgreen")
+
+ circle(88,470,50)
+
+ circle(207,470,50)
+
+ circle(157,470,50)
+
+ circle(357,470,50)
+
+ //leaves for tree^
+
+ car1 = car1 +2.5
+ if(car1>750){
+  car1=-300
+ }
+ car2 = car2+4
+ if(car2>760){
+  car2=-300
+ }
+ fill(150)
+ 
+ rect(car1+40,510,50,40,10)
+ rect(car1+40,520,60,40,10)
+ fill(0)
+ circle(car1+50,560,22)
+ circle(car1+90,560,22)
+
+ fill(150)
+
+ rect(car2+40,510,50,40,10)
+ rect(car2+40,520,60,40,10)
+ fill(0)
+ circle(car2+50,560,22)
+ circle(car2+90,560,22)
+
+ //car^
+
+ fill("#523320")
+ rect(250,540,15,65)
+ fill("darkgreen")
+ circle(257,530,50)
+ //tree on the forground^
 }
