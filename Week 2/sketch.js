@@ -147,6 +147,7 @@ function draw() {
  if(car1>750){
   car1=-300
  }
+
  car2 = car2+4
  if(car2>760){
   car2=-300
@@ -158,15 +159,15 @@ function draw() {
  fill(0)
  circle(car1+50,560,22)
  circle(car1+90,560,22)
-
- fill(150)
-
- rect(car2+40,510,50,40,10)
- rect(car2+40,520,60,40,10)
+ //car 1
+ fill(10,40,150)
+ 
+ rect(car2+40,540,50,40,10)
+ rect(car2+40,550,60,40,10)
  fill(0)
- circle(car2+50,560,22)
- circle(car2+90,560,22)
-
+ circle(car2+50,590,22)
+ circle(car2+90,590,22)
+ //car 2
  //car^
 
  fill("#523320")
