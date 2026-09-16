@@ -148,7 +148,7 @@ function draw() {
  rect(302.5,437.5,35,65)
  rect(310,500,20,30)
 
-strokeWeight(1)
+ strokeWeight(1)
  fill("green")
  circle(320,450,17.5)
 
@@ -158,6 +158,7 @@ strokeWeight(1)
  circle(320,490,17.5)
 
  //stoplight
+ 
  strokeWeight(0)
  car1 = car1 +2.5
  if(car1>750){
@@ -176,6 +177,7 @@ strokeWeight(1)
  circle(car1+50,560,22)
  circle(car1+90,560,22)
  //car 1
+
  fill(10,40,150)
  rect(car2+40,540,50,40,10)
  rect(car2+40,550,60,40,10)
@@ -183,6 +185,7 @@ strokeWeight(1)
  circle(car2+50,590,22)
  circle(car2+90,590,22)
  //car 2
+
  //car^
 
  fill("#523320")
