@@ -8,189 +8,214 @@ let cloudX1 = 0;
 let cloudX2 = 0;
 let car1 = 0;
 let car2 = 0;
-let car3 = 0;
+let lightstate = 'green'
+let carspeed1 = 2.2
+let carspeed2 = 5.5
 
 //here is all the variables
 
 function draw() {
-  background(0,167,210);
+  background(0, 167, 210);
 
   strokeWeight(0)
 
   fill(80)
-  triangle(150,550,450,550,300,270)
+  triangle(150, 550, 450, 550, 300, 270)
 
   fill(160)
-  triangle(100,550,300,550,200,400)
+  triangle(100, 550, 300, 550, 200, 400)
 
-  triangle(350,550,600,550,500,450)
- //mountain^
+  triangle(350, 550, 600, 550, 500, 450)
+  //mountain^
 
- fill("darkgreen")
- rect(0,530,800,100)
- fill('green')
- rect(0,540,800,100)
- //grass^
+  fill("darkgreen")
+  rect(0, 530, 800, 100)
+  fill('green')
+  rect(0, 540, 800, 100)
+  //grass^
 
- sonX = sonX + 1
+  sonX = sonX + 1
 
- if(sonX > 550){
-  sonX = -500
- }
+  if (sonX > 550) {
+    sonX = -500
+  }
 
- fill("yellow")
- circle(sonX + 300,200,100)
+  fill("yellow")
+  circle(sonX + 300, 200, 100)
 
- //sun^
+  //sun^
 
- cloudX=cloudX-2
- cloudX1=cloudX1-1
- cloudX2=cloudX2-3
+  cloudX = cloudX - 2
+  cloudX1 = cloudX1 - 1
+  cloudX2 = cloudX2 - 3
 
- if(cloudX < -600){
-  cloudX = 530
- }
+  if (cloudX < -600) {
+    cloudX = 530
+  }
 
- if(cloudX1 < -600){
-  cloudX1 = 850
- }
+  if (cloudX1 < -600) {
+    cloudX1 = 850
+  }
 
- if(cloudX2 < -600){
-  cloudX2 = 750
- }
-
-
- fill(100)
- ellipse(cloudX1+60,35,80,60)
- ellipse(cloudX1+80,60,80,60)
- ellipse(cloudX1+40,55,80,60)
-
- ellipse(cloudX2+190,145,80,60)
- ellipse(cloudX2+200,175,80,60)
- ellipse(cloudX2+160,155,80,60)
-
- ellipse(cloudX+400,45,80,60)
- ellipse(cloudX+310,60,80,60)
- ellipse(cloudX+355,55,80,60)
- //shadow of clouds^
-
- fill(255)
- ellipse(cloudX1+60,40,80,60)
- ellipse(cloudX1+80,65,80,60)
- ellipse(cloudX1+40,60,80,60)
- 
- ellipse(cloudX2+190,150,80,60)
- ellipse(cloudX2+200,180,80,60)
- ellipse(cloudX2+160,160,80,60)
-
- ellipse(cloudX+400,50,80,60)
- ellipse(cloudX+310,65,80,60)
- ellipse(cloudX+355,60,80,60)
-
- //cloud^
+  if (cloudX2 < -600) {
+    cloudX2 = 750
+  }
 
 
- fill(60)
- rect(0,545,800,70)
+  fill(100)
+  ellipse(cloudX1 + 60, 35, 80, 60)
+  ellipse(cloudX1 + 80, 60, 80, 60)
+  ellipse(cloudX1 + 40, 55, 80, 60)
 
- fill(100)
- rect(0,550,800,70)
+  ellipse(cloudX2 + 190, 145, 80, 60)
+  ellipse(cloudX2 + 200, 175, 80, 60)
+  ellipse(cloudX2 + 160, 155, 80, 60)
 
- let asphaltX = 10;
+  ellipse(cloudX + 400, 45, 80, 60)
+  ellipse(cloudX + 310, 60, 80, 60)
+  ellipse(cloudX + 355, 55, 80, 60)
+  //shadow of clouds^
 
- fill(210)
- ellipse(asphaltX,575,50,10)
+  fill(255)
+  ellipse(cloudX1 + 60, 40, 80, 60)
+  ellipse(cloudX1 + 80, 65, 80, 60)
+  ellipse(cloudX1 + 40, 60, 80, 60)
 
- asphaltX += 120
- ellipse(asphaltX,575,50,10)
+  ellipse(cloudX2 + 190, 150, 80, 60)
+  ellipse(cloudX2 + 200, 180, 80, 60)
+  ellipse(cloudX2 + 160, 160, 80, 60)
+
+  ellipse(cloudX + 400, 50, 80, 60)
+  ellipse(cloudX + 310, 65, 80, 60)
+  ellipse(cloudX + 355, 60, 80, 60)
+
+  //cloud^
+
+
+  fill(60)
+  rect(0, 545, 800, 70)
+
+  fill(100)
+  rect(0, 550, 800, 70)
+
+  let asphaltX = 10;
+
+  fill(210)
+  ellipse(asphaltX, 575, 50, 10)
 
   asphaltX += 120
- ellipse(asphaltX,575,50,10)
-
- asphaltX += 120
- ellipse(asphaltX,575,50,10)
+  ellipse(asphaltX, 575, 50, 10)
 
   asphaltX += 120
- ellipse(asphaltX,575,50,10)
+  ellipse(asphaltX, 575, 50, 10)
 
   asphaltX += 120
- ellipse(asphaltX,575,50,10)
+  ellipse(asphaltX, 575, 50, 10)
 
   asphaltX += 120
- ellipse(asphaltX,575,50,10)
+  ellipse(asphaltX, 575, 50, 10)
 
- //asphalt^
+  asphaltX += 120
+  ellipse(asphaltX, 575, 50, 10)
 
- fill("#523320")
- rect(200,465,15,65)
+  asphaltX += 120
+  ellipse(asphaltX, 575, 50, 10)
 
- rect(80,465,15,65)
+  //asphalt^
 
- rect(150,465,15,65)
+  fill("#523320")
+  rect(200, 465, 15, 65)
 
- rect(350,465,15,65)
+  rect(80, 465, 15, 65)
 
- 
- //tree^
- fill("darkgreen")
+  rect(150, 465, 15, 65)
 
- circle(88,470,50)
+  rect(350, 465, 15, 65)
 
- circle(207,470,50)
 
- circle(157,470,50)
+  //tree^
+  fill("darkgreen")
 
- circle(357,470,50)
+  circle(88, 470, 50)
 
- //leaves for tree^
- fill(160)
+  circle(207, 470, 50)
 
- rect(302.5,437.5,35,65)
- rect(310,500,20,30)
+  circle(157, 470, 50)
 
- strokeWeight(1)
- fill("green")
- circle(320,450,17.5)
+  circle(357, 470, 50)
 
- fill("orange")
- circle(320,470,17.5)
- fill("red")
- circle(320,490,17.5)
+  //leaves for tree^
+  fill(160)
+  rect(302.5, 437.5, 35, 65)
+  rect(310, 500, 20, 30)
+  strokeWeight(1)
+  if (lightstate == 'green') {
+    fill("green")
+  } else fill("gray") 
+   circle(320, 450, 17.5)
+  if (lightstate == 'orange') {
+    strokeWeight(1)
+    fill("orange")
+  } else fill("gray")
+   circle(320, 470, 17.5)
+  if (lightstate == 'red') {
+    fill("red")
+    
+  } else fill("gray")
+   circle(320, 490, 17.5)
+   //stoplight
 
- //stoplight
- 
- strokeWeight(0)
- car1 = car1 +2.5
- if(car1>750){
-  car1=-300
- }
+  strokeWeight(0)
+  car1 += carspeed1
+  if (car1 > 750) {
+    car1 = -300
+  }
 
- car2 = car2+4
- if(car2>760){
-  car2=-300
- }
- fill(150)
- 
- rect(car1+40,510,50,40,10)
- rect(car1+40,520,60,40,10)
- fill(0)
- circle(car1+50,560,22)
- circle(car1+90,560,22)
- //car 1
+  car2 += carspeed2
+  if (car2 > 760) {
+    car2 = -300
+  }
+  fill(150)
 
- fill(10,40,150)
- rect(car2+40,540,50,40,10)
- rect(car2+40,550,60,40,10)
- fill(0)
- circle(car2+50,590,22)
- circle(car2+90,590,22)
- //car 2
+  rect(car1 + 40, 510, 50, 40, 10)
+  rect(car1 + 40, 520, 60, 40, 10)
+  fill(0)
+  circle(car1 + 50, 560, 22)
+  circle(car1 + 90, 560, 22)
+  //car 1
 
- //car^
+  fill(10, 40, 150)
+  rect(car2 + 40, 540, 50, 40, 10)
+  rect(car2 + 40, 550, 60, 40, 10)
+  fill(0)
+  circle(car2 + 50, 590, 22)
+  circle(car2 + 90, 590, 22)
+  //car 2
 
- fill("#523320")
- rect(250,540,15,65)
- fill("darkgreen")
- circle(257,530,50)
- //tree on the forground^
+  //car^
+
+  fill("#523320")
+  rect(250, 540, 15, 65)
+  fill("darkgreen")
+  circle(257, 530, 50)
+  //tree on the forground^
+}
+
+function keyPressed() {
+  if (keyCode === ENTER) {
+
+    if (lightstate == 'green') {
+      lightstate = 'orange'
+      carspeed1 *= 0.5
+      carspeed2 *= 0.5
+    } else if (lightstate == 'orange') {
+      lightstate = 'red'
+      carspeed2 *= 0
+      carspeed1 *= 0
+    } else if (lightstate == 'red') {
+      lightstate = 'green'
+      carspeed1 = 2.2
+      carspeed2 = 5.5
+    }
+  }
 }
