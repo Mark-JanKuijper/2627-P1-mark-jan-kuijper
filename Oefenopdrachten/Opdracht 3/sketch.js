@@ -3,6 +3,9 @@ function setup() {
 }
 
 let score = 90
+let a = 0;
+let b = 0;
+
 
 function draw() {
   background(120);
@@ -39,8 +42,25 @@ function draw() {
     fill(255, 0, 0)
     text("onvoldoende", 50, 50)
   }
-
-}
+   //framerate limits the amout of frames per second
+   frameRate(10)
+   textSize(30)
+   //keyIsDown is similiar to keyispressed and keycode
+   //but alot more simplified
+  if (keyIsDown(32)) {
+    //floor rounds of numbers to lower ones
+    //round also rounds of numbers
+    //ceil also round of numbers but higher
+    a = round(random(0,100)) 
+    b = round(random(0,100))
+    } if(a > b){
+      text(a+" is groter dan "+b,50,100)
+    } else if(a < b){
+      text(a+" is kleiner dan "+b,50,100)
+    } else if (a == b){
+      text(a+" is gelijk aan "+b,50,100)
+    }   
+  }
 
 
 

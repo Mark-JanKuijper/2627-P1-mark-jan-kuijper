@@ -5,6 +5,8 @@ let score = 0;
 let light_color = 'green';
 let movement0 = 0;
 let movement1 = 0;
+let number0 = random(0,100)
+let number1 = random(0,100)
 // every variables
 
 function draw() {
@@ -116,6 +118,9 @@ function draw() {
     movement0 += 10
   }
   // D^
+  //keycodeinfo website is where you can find the keycodes
+
+
 }
 
 }
