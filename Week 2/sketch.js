@@ -44,7 +44,7 @@ function draw() {
   if(UFOx >=960){
     UFOx=-1300
   }
-
+  //ufo movement
   //UFO?!?!?^
 
   fill("darkgreen")
@@ -79,7 +79,7 @@ function draw() {
   if (cloudX2 < -600) {
     cloudX2 = 750
   }
-
+ //allows cloud movement
 
   fill(100)
   ellipse(cloudX1 + 60, 35, 80, 60)
@@ -175,7 +175,7 @@ function draw() {
   if(leaves1>10){
     leaves1 = -10
   }
-
+  // leaves1 is for the movement of the leaves
   //leaves for tree^
 
   fill(130)
@@ -200,11 +200,12 @@ function draw() {
   fill(160)
   rect(302.5, 437.5, 35, 65)
   rect(310, 500, 20, 30)
+
   strokeWeight(1)
   if (lightstate == 'green') {
-    fill("green")
-  } else fill("gray") 
-   circle(320, 450, 17.5)
+    fill("green") //color the circle in
+  } else fill("gray") //else make it gray
+   circle(320, 450, 17.5) // circle has to be last
   if (lightstate == 'orange') {
     strokeWeight(1)
     fill("orange")
@@ -227,6 +228,7 @@ function draw() {
   if (car2 > 760) {
     car2 = -300
   }
+
   fill(150)
 
   rect(car1 + 40, 510, 50, 40, 10)
@@ -275,5 +277,7 @@ function keyPressed() {
       carspeed2 = 5.5
       UFOspeed = 20
     }
+    // allows the stoplight to change colo(u)rs
+    //and effect the cars(and more)
   }
 }
