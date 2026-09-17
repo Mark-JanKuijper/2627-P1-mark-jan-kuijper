@@ -11,7 +11,9 @@ let car2 = 0;
 let lightstate = 'green'
 let carspeed1 = 2.2
 let carspeed2 = 5.5
-
+let UFOx = 0;
+let UFOspeed = 20;
+let leaves1 = 0;
 //here is all the variables
 
 function draw() {
@@ -27,6 +29,23 @@ function draw() {
 
   triangle(350, 550, 600, 550, 500, 450)
   //mountain^
+
+  UFOx += UFOspeed
+
+  fill("darkgreen")
+  circle(UFOx+230,310,20)
+
+  fill(0,130,250,120)
+  circle(UFOx+230,320,50)
+
+  fill(160)
+  rect(UFOx+200,320,60,30,10)
+
+  if(UFOx >=960){
+    UFOx=-1300
+  }
+
+  //UFO?!?!?^
 
   fill("darkgreen")
   rect(0, 530, 800, 100)
@@ -144,7 +163,40 @@ function draw() {
 
   circle(357, 470, 50)
 
+  fill(10,120,0,190)
+  circle(leaves1+88, 470, 50)
+
+  circle(leaves1+207, 470, 50)
+
+  circle(leaves1+157, 470, 50)
+
+  circle(leaves1+357, 470, 50)
+  leaves1 += 0.5
+  if(leaves1>10){
+    leaves1 = -10
+  }
+
   //leaves for tree^
+
+  fill(130)
+  rect(590,530,40,10)
+  rect(600,480,20,50)
+  fill("yellow")
+  rect(600,460,20,20)
+  fill(120)
+  triangle(580,460,610,420,640,460)
+
+  fill(130)
+  rect(690,530,40,10)
+  rect(700,480,20,50)
+  fill("yellow")
+  rect(700,460,20,20)
+  fill(120)
+  triangle(680,460,710,420,740,460)
+  
+
+  // lantern^
+
   fill(160)
   rect(302.5, 437.5, 35, 65)
   rect(310, 500, 20, 30)
@@ -198,6 +250,9 @@ function draw() {
   rect(250, 540, 15, 65)
   fill("darkgreen")
   circle(257, 530, 50)
+  fill(10,120,0,190)
+  circle(leaves1+257, 530, 50)
+  
   //tree on the forground^
 }
 
@@ -208,14 +263,17 @@ function keyPressed() {
       lightstate = 'orange'
       carspeed1 *= 0.5
       carspeed2 *= 0.5
+      UFOspeed *= 0.5
     } else if (lightstate == 'orange') {
       lightstate = 'red'
       carspeed2 *= 0
       carspeed1 *= 0
+      UFOspeed *= 0
     } else if (lightstate == 'red') {
       lightstate = 'green'
       carspeed1 = 2.2
       carspeed2 = 5.5
+      UFOspeed = 20
     }
   }
 }
