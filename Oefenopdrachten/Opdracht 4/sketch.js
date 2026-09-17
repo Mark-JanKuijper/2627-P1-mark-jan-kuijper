@@ -98,25 +98,7 @@ function draw() {
     movement1 = 440
   }
   //this here is the rules for the 8ball
-}
-
-function keyPressed()
-{
-  
-  if (keyCode === 13) {
-      if (light_color == 'green') {
-        light_color = 'orange'
-      } else if (light_color == 'orange') {
-        light_color = 'red'
-        fill("red")
-      } else if (light_color == 'red') {
-        light_color = 'green'
-        fill("green")
-      }
-
-    }
-
-  
+  if(keyIsPressed===true){
     //down here is the movement for the 8ball
   if(keyCode === 87 | keyCode == 38){
     movement1 += -10
@@ -134,6 +116,27 @@ function keyPressed()
     movement0 += 10
   }
   // D^
+}
+
+}
+
+function keyPressed()
+{
+  
+  
+  if (keyCode === 13) {
+      if (light_color == 'green') {
+        light_color = 'orange'
+      } else if (light_color == 'orange') {
+        light_color = 'red'
+        fill("red")
+      } else if (light_color == 'red') {
+        light_color = 'green'
+        fill("green")
+      }
+
+    }
+
 }
 
 
