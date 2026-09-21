@@ -2,7 +2,7 @@ function setup() {
   createCanvas(400, 200);
 }
 
-let score = 90
+let score = 10
 let a = 0;
 let b = 0;
 
