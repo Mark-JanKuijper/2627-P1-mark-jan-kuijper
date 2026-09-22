@@ -30,7 +30,7 @@ function draw() {
   } else if (square1 == 2) {
     fill(blue)
   }
-  //it gifts the squares color
+  // 
 
   square(100, 100, 75, 10)
   fill(255)
@@ -130,18 +130,12 @@ function mousePressed() {
 
     player_turn = 1
   }
-  // if (playerrun==0)
-  // then if (sqaure == 0)
-  // then fill red
-  // else if playerturn == 1
-  // then if square == 1
-  // fill blue
-  // else if playerturn == 2
-  // then square == 2
-  // fill red
-  //
-  //
 
+
+  //when the mouse is pressed it
+  //checks where the mouse is
+  //if its in the right place it colors it
+  //
   if (square1 == 0) {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
@@ -158,7 +152,7 @@ function mousePressed() {
       square1 = 1
     }
   }
-
+  //1
 
   if (square2 == 0) {
     if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
@@ -176,7 +170,7 @@ function mousePressed() {
       square2 = 1
     }
   }
-
+  //2
 
   if (square3 == 0) {
     if (mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
@@ -194,6 +188,7 @@ function mousePressed() {
       square3 = 1
     }
   }
+  //3
   if (square4 == 0) {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
@@ -210,7 +205,7 @@ function mousePressed() {
       square4 = 1
     }
   }
-
+    //4
     if (square5 == 0) {
     if (mouseX > 175 + 10 && mouseX < 175 + 75 + 10 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
@@ -227,7 +222,7 @@ function mousePressed() {
       square5 = 1
     }
   }
-
+  //5
  if (square6 == 0) {
     if (mouseX > 250 + 20  && mouseX < 250 + 75 + 20 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
@@ -279,7 +274,7 @@ function mousePressed() {
       square8 = 1
     }
   }
-
+  //8
 
     if (square9 == 0) {
     if (mouseX > 250 + 20 && mouseX < 250 + 75 + 10&&
@@ -297,5 +292,5 @@ function mousePressed() {
       square9 = 1
     }
   }
-
+ //9
 }
