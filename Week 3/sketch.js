@@ -23,20 +23,11 @@ function draw() {
   //the code you see underneath here is copied
   //is from the mouse position en hover help page
 
-  if (square1 == 1) {
-    if (mouseX > 100 && mouseX < 100 + 75 &&
-      mouseY > 100 && mouseY < 100 + 75
-    ) {
-      fill(0, 255, 255)
+ if(mouseX > 100 && mouseX < 100 + 75 &&
+     mouseY > 100 && mouseY < 100 + 75
+    ){
+      
     }
-  } else if (square1 == 2) {
-    if (mouseX > 100 && mouseX < 100 + 75 &&
-      mouseY > 100 && mouseY < 100 + 75
-    ) {
-      fill(255, 0, 255)
-    }
-  }
-
 
   square(100, 100, 75, 10)
   fill(255)
@@ -197,7 +188,7 @@ function mouseClicked() {
   }
 
   if (state_square == 0) {
-    square1 = 1
+    
     square2 = 1
     square3 = 1
     square4 = 1
@@ -207,7 +198,7 @@ function mouseClicked() {
     square8 = 1
     square9 = 1
   } else if (state_square == 1) {
-    square1 = 2
+    
     square2 = 2
     square3 = 2
     square4 = 2
@@ -217,7 +208,7 @@ function mouseClicked() {
     square8 = 2
     square9 = 2
   } else if (square1 == 2) {
-    square1 = 1
+    
     square2 = 1
     square3 = 1
     square4 = 1
@@ -228,5 +219,5 @@ function mouseClicked() {
     square9 = 1
   }
 
-  
+
 }
