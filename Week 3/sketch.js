@@ -29,6 +29,7 @@ function draw() {
       
     }
 
+
   square(100, 100, 75, 10)
   fill(255)
 
@@ -45,6 +46,38 @@ function draw() {
       fill(100, 100, 0)
     }
   }
+
+ if(state_square == 1){
+  if(mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
+    mouseY > 100 && mouseY < 100 + 75
+  ){
+    fill(0,255,0)
+  }
+ } else if(state_square == 2){
+  if(mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
+    mouseY > 100 && mouseY < 100 + 75
+  ){
+    fill(255,0,0)
+  }
+ } 
+ square(175 + 10,100,75,10)
+
+
+ if(state_square == 1){
+  if(mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
+    mouseY > 100 && mouseY < 100 + 75
+  ){
+    fill(0,255,0)
+  }
+ } else if(state_square == 2){
+  if(mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
+    mouseY > 100 && mouseY < 100 + 75
+  ){
+    fill(255,0,0)
+  }
+ } 
+ square(250 + 20,100,75,10)
+
 
   square(175 + 10, 100, 75, 10)
   fill(255)
@@ -171,6 +204,104 @@ function draw() {
   fill(255)
 
   //derde rij
+if(state_square == 1){
+  if(mouseX > 100 && mouseX < 100 + 75 &&
+    mouseY > 175 + 10 && mouseY < 175 + 10 + 75
+  ){
+    fill(0,255,0)
+  }
+ } else if(state_square == 2){
+  if(mouseX > 100 && mouseX < 100 + 75 &&
+    mouseY > 175 + 10 && mouseY < 175 + 10 + 75
+  ){
+    fill(255,0,0)
+  }
+ } 
+ square(100,175 + 10,75,10)
+
+
+
+ if(state_square == 1){
+  if(mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
+    mouseY > 175 + 10 && mouseY < 175 + 10 + 75
+  ){
+    fill(0,255,0)
+  }
+ } else if(state_square == 2){
+  if(mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
+    mouseY > 175 + 10 && mouseY < 175 + 10 + 75
+  ){
+    fill(255,0,0)
+  }
+ } 
+
+ 
+ square(175 + 10,175 + 10,75,10)
+
+  if(state_square == 1){
+  if(mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
+    mouseY > 175 + 10&& mouseY < 175 + 10 + 75
+  ){
+    fill(0,255,0)
+  }
+ } else if(state_square == 2){
+  if(mouseX > 250 + 20 && mouseX < 250 + 20 +75 &&
+    mouseY > 175 + 10 && mouseY < 175 + 10 +75
+  ){
+    fill(255,0,0)
+  }
+ } 
+ square(250 + 20,175 + 10,75,10)
+ //tweede rij
+
+  if(state_square == 1){
+  if(mouseX > 100 && mouseX < 100 + 75 &&
+    mouseY > 250 + 20 && mouseY < 250 + 20 + 75
+  ){
+    fill(0,255,0)
+  }
+ } else if(state_square == 2){
+  if(mouseX > 100 && mouseX < 100 + 75 &&
+    mouseY > 250 + 20 && mouseY < 250 + 75 + 20
+  ){
+    fill(255,0,0)
+  }
+ } 
+ square(100,250 + 20,75,10)
+
+  if(state_square == 1){
+  if(mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
+    mouseY > 250 + 20 && mouseY < 250 + 20 + 75
+  ){
+    fill(0,255,0)
+  }
+ } else if(state_square == 2){
+  if(mouseX > 175 + 10 && mouseX < 175 + 75 + 10 &&
+    mouseY > 250 + 20&& mouseY < 250 + 20 + 75
+  ){
+    fill(255,0,0)
+  }
+ } 
+
+ square(175 + 10,250 + 20,75,10)
+
+
+  if(state_square == 1){
+  if(mouseX > 250 + 20 && mouseX < 250 + 75 + 20 &&
+    mouseY > 250 + 20 && mouseY < 250 + 75 + 20
+  ){
+    fill(0,255,0)
+  }
+ } else if(state_square == 2){
+  if(mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
+    mouseY > 250 + 20 && mouseY < 250 + 20 + 75
+  ){
+    fill(255,0,0)
+  }
+ } 
+ square(250 + 20,250 + 20,75,10)
+
+ //derde rij
 
 
 }
@@ -217,7 +348,15 @@ function mouseClicked() {
     square7 = 1
     square8 = 1
     square9 = 1
+  if(state_square == 0){
+
+    square1 = 1
+  } else if (state_square == 1){
+
+    square1 = 2
+  } else if (square1 == 2){
+
+    square1 = 1
+}
   }
-
-
 }
