@@ -5,6 +5,15 @@ function setup() {
 let state_square = 0;
 let player_turn = 0;
 
+let square1 = 0;
+let square2 = 0;
+let square3 = 0;
+let square4 = 0;
+let square5 = 0;
+let sqaure6 = 0;
+let square7 = 0;
+let square8 = 0; 
+let square9 = 0;
 
 //variables
 
@@ -13,21 +22,22 @@ function draw() {
  
   //the code you see underneath here is copied
   //is from the mouse position en hover help page
- if(state_square == 1){
+
+ if(square1 == 1){
   if(mouseX > 100 && mouseX < 100 + 75 &&
     mouseY > 100 && mouseY < 100 + 75
   ){
-    fill(0,255,0)
+    fill(0,255,255)
   }
- } else if(state_square == 2){
+ } else if(square1 == 2){
   if(mouseX > 100 && mouseX < 100 + 75 &&
     mouseY > 100 && mouseY < 100 + 75
   ){
-    fill(255,0,0)
+    fill(255,0,255)
   }
  } 
  square(100,100,75,10)
- 
+ fill(255)
 
  if(state_square == 1){
   if(mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
@@ -146,8 +156,8 @@ if(state_square == 1){
 
 
   if(state_square == 1){
-  if(mouseX > 250 && mouseX < 250 + 75 &&
-    mouseY > 250 && mouseY < 250 + 75
+  if(mouseX > 250 + 20 && mouseX < 250 + 75 + 20 &&
+    mouseY > 250 + 20 && mouseY < 250 + 75 + 20
   ){
     fill(0,255,0)
   }
@@ -176,5 +186,17 @@ function mouseClicked(){
     
     state_square = 1
   }
+
+  if(state_square == 0){
+
+    square1 = 1
+  } else if (state_square == 1){
+
+    square1 = 2
+  } else if (square1 == 2){
+
+    square1 = 1
+  }
+
 
 }
