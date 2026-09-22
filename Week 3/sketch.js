@@ -35,9 +35,9 @@ function draw() {
   ){
     fill(255,0,255)
   }
- } 
+ } else fill(255)
  square(100,100,75,10)
- fill(255)
+ 
 
  if(square2 == 1){
   if(mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
@@ -51,11 +51,10 @@ function draw() {
   ){
     fill(100,100,0)
   }
- } 
+ } else fill(255)
  
  square(175 + 10,100,75,10)
- fill(255)
-
+ 
  if(square3 == 1){
   if(mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
     mouseY > 100 && mouseY < 100 + 75
@@ -68,9 +67,9 @@ function draw() {
   ){
     fill(255,0,0)
   }
- } 
+ } else fill(255)
  square(250 + 20,100,75,10)
-fill(255)
+
 
  //eerste rij
 
@@ -86,9 +85,8 @@ if(square4 == 1){
   ){
     fill(50,255,0)
   }
- } 
+ } else fill(255)
  square(100,175 + 10,75,10)
-fill(255)
 
 
  if(square5 == 1){
@@ -103,10 +101,10 @@ fill(255)
   ){
     fill(120,0,120)
   }
- } 
+ } else fill(255)
 
  square(175 + 10,175 + 10,75,10)
-fill(255)
+
 
 
   if(square6 == 1){
@@ -121,10 +119,10 @@ fill(255)
   ){
     fill(255,0,0)
   }
- } 
+ } else fill(255)
 
  square(250 + 20,175 + 10,75,10)
- fill(255)
+ 
  //tweede rij
 
   if(square7 == 1){
@@ -139,10 +137,10 @@ fill(255)
   ){
     fill(255,200,0)
   }
- } 
+ } else fill(255)
 
  square(100,250 + 20,75,10)
- fill(255)
+ 
 
   if(square8 == 1){
   if(mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
@@ -156,10 +154,10 @@ fill(255)
   ){
     fill(100,110,110)
   }
- } 
+ } else fill(255)
 
  square(175 + 10,250 + 20,75,10)
- fill(255)
+ 
 
 
   if(square9 == 1){
@@ -174,10 +172,10 @@ fill(255)
   ){
     fill(255,255,255)
   }
- } 
+ } else fill(255)
 
  square(250 + 20,250 + 20,75,10)
- fill(255)
+ 
 
  //derde rij
 
