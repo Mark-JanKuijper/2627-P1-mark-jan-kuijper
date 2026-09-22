@@ -216,6 +216,7 @@ function draw() {
     
   } else fill("gray")
    circle(320, 490, 17.5)
+   
    //stoplight
 
   strokeWeight(0)
