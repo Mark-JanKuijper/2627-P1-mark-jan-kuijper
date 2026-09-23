@@ -2,6 +2,14 @@ function setup() {
   createCanvas(500, 500);
 }
 
+
+// first things first HUGE thank you to
+// Michael, without him i probably would stil be stuck
+// second thing is that this project used AI to rewrite most of the code
+// that was mostly Michaels doing, so sorry for saying that micahael,
+// so unfortanatly i dont understand all of it.
+// i hope you can grade it accordingly
+
 let player_turn = 1;
 let retry = 0;
 let winner = 0;
@@ -13,25 +21,38 @@ let blueColor = "#0400ff";
 let gameState = "playing"
 
 function draw() {
-  background(220);
+  
+  if(player_turn == 1){
+    background(redColor);
+  } else if (player_turn == 2){
+    background(blueColor)
+  }
+  strokeWeight(5)
   fill(0);
   textSize(20);
+
+  
 
   if (retry == 1) {
     text("retry", 200, 460);
   }
 
   if (winner == 1){
-    text("player 1 won",20,20)
+    textSize(30)
+    text("player 1 won",30,25)
   } else if (winner == 2) {
-    text("player 2 won", 20, 20)
+    textSize(30)
+    text("player 2 won", 30, 25)
   } else if (winner == 3) {
-    text("its a tie", 20, 20)
+    textSize(30)
+    text("its a tie", 30, 25)
   }
 
   if (player_turn == 1) {
+    textSize(20)
     text("player 1 turn (Red)", 160, 50);
   } else if (player_turn == 2) {
+    textSize(20)
     text("player 2 turn (Blue)", 160, 50);
   }
 
@@ -57,6 +78,11 @@ function draw() {
   }
 }
 
+  // Helper to switch turns
+  function switchTurn() {
+    player_turn = (player_turn === 1) ? 2 : 1; //ternary statement
+  }
+
 function mousePressed() {
   // Check retry button
   if (retry === 1 && mouseX > 175 && mouseX < 175 + 75 && mouseY > 450 && mouseY < 470) {
@@ -66,11 +92,6 @@ function mousePressed() {
     retry = 0;
     winner = 0;
     return;
-  }
-
-  // Helper to switch turns
-  function switchTurn() {
-    player_turn = (player_turn === 1) ? 2 : 1;
   }
 
   // Check clicks for all 9 squares cleanly
