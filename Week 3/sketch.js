@@ -2,295 +2,113 @@ function setup() {
   createCanvas(500, 500);
 }
 
-let state_square = 0;
-let player_turn = 0;
+let player_turn = 1;
+let retry = 0;
+let winner = 0;
 
-let square1 = 0;
-let square2 = 0;
-let square3 = 0;
-let square4 = 0;
-let square5 = 0;
-let square6 = 0;
-let square7 = 0;
-let square8 = 0;
-let square9 = 0;
+// Array to store the state of all 9 squares (0 = empty, 1 = player 1, 2 = player 2)
+let squares = [
+  0, 0, 0, 
+  0, 0, 0, 
+  0, 0, 0];
 
-let red = "#ff0000";
-let blue = "#0400ff"
-//variables
+let redColor = "#ff0000";
+let blueColor = "#0400ff";
+let gameState = "playing"
 
 function draw() {
   background(220);
+  fill(0);
+  textSize(20);
 
-  //the code you see underneath here is copied
-  //is from the mouse position en hover help page
-
-  if (square1 == 1) {
-    fill(red)
-  } else if (square1 == 2) {
-    fill(blue)
-  }
-  // 
-
-  square(100, 100, 75, 10)
-  fill(255)
-
-  if (square2 == 1) {
-    fill(255, 250, 0)
-  } else if (square2 == 2) {
-    fill(0, 0, 255)
+  if (retry == 1) {
+    text("retry", 200, 400);
   }
 
-  square(175 + 10, 100, 75, 10)
-  fill(255)
-
-  if (square3 == 1) {
-    fill(255, 0, 255)
-  } else if (square3 == 2) {
-    fill(255, 0, 100)
+  if (player_turn == 1) {
+    text("player 1 turn (Red)", 160, 50);
+  } else if (player_turn == 2) {
+    text("player 2 turn (Blue)", 160, 50);
   }
 
-  square(250 + 20, 100, 75, 10)
-  fill(255)
+  // Draw the 3x3 grid using a loop to avoid messy duplicated code
+  let index = 0;
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 3; col++) {
+      let x = 100 + col * 85;
+      let y = 100 + row * 85;
 
-  //eerste rij
+      // Set color based on who owns the square
+      if (squares[index] == 1) {
+        fill(redColor);
+      } else if (squares[index] == 2) {
+        fill(blueColor);
+      } else {
+        fill(255); // White if empty
+      }
 
-  if (square4 == 1) {
-    fill(0, 100, 255)
-  } else if (square4 == 2) {
-    fill(100, 0, 100)
+      square(x, y, 75, 10);
+      index++;
+    }
   }
-
-  square(100, 175 + 10, 75, 10)
-  fill(255)
-
-   if (square5 == 1) {
-    fill(0, 100, 255)
-  } else if (square5 == 2) {
-    fill(100, 0, 100)
-  }
-
-  square(175 + 10, 175 + 10, 75, 10)
-  fill(255)
-
-  if (square6 == 1) {
-    fill(0, 100, 255)
-  } else if (square6 == 2) {
-    fill(100, 0, 100)
-  }
-
-
-  square(250 + 20, 175 + 10, 75, 10)
-  fill(255)
-  //tweede rij
-
-  if (square7 == 1) {
-    fill(0, 100, 255)
-  } else if (square7 == 2) {
-    fill(100, 0, 100)
-  }
-
-  square(100, 250 + 20, 75, 10)
-  fill(255)
-
-
-  if (square8 == 1) {
-    fill(0, 100, 255)
-  } else if (square8 == 2) {
-    fill(100, 0, 100)
-  }
-
-
-  square(175 + 10, 250 + 20, 75, 10)
-  fill(255)
-
-
-  if (square9 == 1) {
-    fill(0, 100, 255)
-  } else if (square9 == 2) {
-    fill(100, 0, 100)
-  }
-
-  square(250 + 20, 250 + 20, 75, 10)
-  fill(255)
-
-  //derde rij
-
-
 }
 
 function mousePressed() {
-  if (player_turn == 0) {
-
-    player_turn = 1
-  } else if (player_turn == 1) {
-
-    player_turn = 2
-  } else if (player_turn == 2) {
-
-    player_turn = 1
+  // Check retry button
+  if (retry === 1 && mouseX > 175 && mouseX < 175 + 75 && mouseY > 380 && mouseY < 400) {
+    squares = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    player_turn = 1;
+    gameState = "playing"
+    retry = 0;
+    return;
   }
 
+  // Helper to switch turns
+  function switchTurn() {
+    player_turn = (player_turn === 1) ? 2 : 1;
+  }
 
-  //when the mouse is pressed it
-  //checks where the mouse is
-  //if its in the right place it colors it
-  //
-  if (square1 == 0) {
-    if (mouseX > 100 && mouseX < 100 + 75 &&
-      mouseY > 100 && mouseY < 100 + 75
-    ) {
-      square1 = 1
-    }
-    else if (square1 == 1) {
-      if (mouseX > 100 && mouseX < 100 + 75 &&
-        mouseY > 100 && mouseY < 100 + 75
-      ) {
-        square1 = 2
-      }
-    } else if (square1 == 2) {
-      square1 = 1
-    }
-  }
-  //1
+  // Check clicks for all 9 squares cleanly
+  let index = 0;
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 3; col++) {
+      let x = 100 + col * 85;
+      let y = 100 + row * 85;
 
-  if (square2 == 0) {
-    if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
-      mouseY > 100 && mouseY < 100 + 75
-    ) {
-      square2 = 1
-    }
-    else if (square2 == 1) {
-      if (mouseX > 250 + 10 && mouseX < 250 + 10 + 75 &&
-        mouseY > 100 && mouseY < 100 + 75
-      ) {
-        square2 = 2
+      if (squares[index] === 0 && gameState === "playing")  {
+        if (mouseX > x && mouseX < x + 75 && mouseY > y && mouseY < y + 75) {
+          squares[index] = player_turn;
+          switchTurn();
+        }
       }
-    } else if (square2 == 2) {
-      square2 = 1
+      index++;
     }
   }
-  //2
+  checkWinner()
+}
 
-  if (square3 == 0) {
-    if (mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
-      mouseY > 100 && mouseY < 100 + 75
-    ) {
-      square3 = 1
-    }
-    else if (square3 == 1) {
-      if (mouseX > 250 + 10 && mouseX < 250 + 10 + 75 &&
-        mouseY > 100 && mouseY < 100 + 75
-      ) {
-        square3 = 2
-      }
-    } else if (square3 == 2) {
-      square3 = 1
-    }
-  }
-  //3
-  if (square4 == 0) {
-    if (mouseX > 100 && mouseX < 100 + 75 &&
-      mouseY > 175 + 10 && mouseY < 175 + 75 + 10
-    ) {
-      square4 = 1
-    }
-    else if (square4 == 1) {
-      if (mouseX > 100  && mouseX < 100 + 75 &&
-        mouseY > 175 + 10 && mouseY < 100 + 75 + 10
-      ) {
-        square4 = 2
-      }
-    } else if (square4 == 2) {
-      square4 = 1
-    }
-  }
-    //4
-    if (square5 == 0) {
-    if (mouseX > 175 + 10 && mouseX < 175 + 75 + 10 &&
-      mouseY > 175 + 10 && mouseY < 175 + 75 + 10
-    ) {
-      square5 = 1
-    }
-    else if (square5 == 1) {
-      if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
-        mouseY > 175 + 10 && mouseY < 175 + 75 + 10
-      ) {
-        square5 = 2
-      }
-    } else if (square5 == 2) {
-      square5 = 1
-    }
-  }
-  //5
- if (square6 == 0) {
-    if (mouseX > 250 + 20  && mouseX < 250 + 75 + 20 &&
-      mouseY > 175 + 10 && mouseY < 175 + 75 + 10
-    ) {
-      square6 = 1
-    }
-    else if (square6 == 1) {
-      if (mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
-        mouseY > 175 + 10 && mouseY < 175 + 75 + 10
-      ) {
-        square6 = 2
-      }
-    } else if (square6 == 2) {
-      square6 = 1
-    }
-  }
- // square 6
+function checkWinner(){
 
-  if (square7 == 0) {
-    if (mouseX > 100 && mouseX < 100 + 75 &&
-      mouseY > 250 + 10 && mouseY < 250 + 75 + 10
-    ) {
-      square7 = 1
-    }
-    else if (square7 == 1) {
-      if (mouseX > 100 + 20 && mouseX < 250  + 75 &&
-        mouseY > 250 + 20 && mouseY < 250 + 75 + 20
-      ) {
-        square7 = 2
-      }
-    } else if (square7 == 2) {
-      square7 = 1
-    }
-  } // 7
+  const win = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+      [0, 4, 8], [2, 4, 6]              // Diagonals
+    ];
 
-    if (square8 == 0) {
-    if (mouseX > 175 + 10 && mouseX < 175 + 75 + 10&&
-      mouseY > 250 + 20 && mouseY < 250 + 75 + 20
-    ) {
-      square8 = 1
-    }
-    else if (square8 == 1) {
-      if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
-        mouseY > 250 + 20 && mouseY < 250 + 75 + 20
-      ) {
-        square8 = 2
-      }
-    } else if (square8 == 2) {
-      square8 = 1
-    }
-  }
-  //8
+    for (let combo of win) {
+      let [a,b,c] = combo
 
-    if (square9 == 0) {
-    if (mouseX > 250 + 20 && mouseX < 250 + 75 + 10&&
-      mouseY > 250 + 20 && mouseY < 250 + 75 + 20
-    ) {
-      square9 = 1
-    }
-    else if (square9 == 1) {
-      if (mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
-        mouseY > 250 + 20 && mouseY < 250 + 75 + 20
-      ) {
-        square9 = 2
+      if (squares[a] !== 0 && squares[a] === squares[b] && squares[a] === squares[c]) {
+        gameState = "game_over";
+        retry = 1;
+        winner = squares[a];
+        return;
       }
-    } else if (square9 == 2) {
-      square9 = 1
     }
+
+  if (!squares.includes(0)) {
+    gameState = "game_over";
+    retry = 1;
+    winner = 0; // Tie
   }
- //9
 }
