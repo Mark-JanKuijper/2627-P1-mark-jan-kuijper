@@ -4,6 +4,7 @@ function setup() {
 
 let state_square = 0;
 let player_turn = 0;
+let retry = 0;
 
 let square1 = 0;
 let square2 = 0;
@@ -22,15 +23,29 @@ let blue = "#0400ff"
 function draw() {
   background(220);
 
-  //the code you see underneath here is copied
-  //is from the mouse position en hover help page
+  textSize(20)
+  fill(0)
+  
+  if(retry == 1){
+    text("retry",300,400)
+  }
+  
 
+  if(player_turn == 0){
+    text("player 1 turn",20,20)
+  } else if(player_turn == 1){
+    text("player 2 turn",20,20)
+  }
+
+  fill(255)
   if (square1 == 1) {
     fill(red)
   } else if (square1 == 2) {
     fill(blue)
   }
-  // 
+  // here is one of the squares.
+  // if it is 1 it is red
+  // if it is 2 it is blue
 
   square(100, 100, 75, 10)
   fill(255)
@@ -120,40 +135,28 @@ function draw() {
 }
 
 function mousePressed() {
-  if (player_turn == 0) {
-
-    player_turn = 1
-  } else if (player_turn == 1) {
-
-    player_turn = 2
-  } else if (player_turn == 2) {
-
-    player_turn = 1
-  }
-
-
+ 
+  //the code you see underneath here is copied
+  //from the mouse position en hover help page
   //when the mouse is pressed it
   //checks where the mouse is
   //if its in the right place it colors it
   //
+  
   if (square1 == 0) {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
     ) {
-      square1 = 1
-    }
-    else if (square1 == 1) {
-      if (mouseX > 100 && mouseX < 100 + 75 &&
-        mouseY > 100 && mouseY < 100 + 75
-      ) {
+      if(player_turn == 0){
+        square1 = 1
+      } else if (player_turn == 1){
         square1 = 2
-      }
-    } else if (square1 == 2) {
-      square1 = 1
-    }
-  }
+     }
+   }
+   
   //1
-
+  }
+  
   if (square2 == 0) {
     if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
@@ -293,4 +296,22 @@ function mousePressed() {
     }
   }
  //9
+
+
+ //rety button
+ if(retry == 1){
+ if(mouseX > 300 && mouseX < 340 &&
+  mouseY > 380 && mouseY < 400
+ ) {
+  retry = 0
+ }
+
+} //player turns
+  if (player_turn == 0) {
+
+    player_turn = 1
+  } else if (player_turn == 1) {
+
+    player_turn = 0
+  }
 }
