@@ -5,6 +5,8 @@ function setup() {
 let state_square = 0;
 let player_turn = 0;
 let retry = 0;
+let win = 0;
+let game_state = "playing";
 
 let square1 = 0;
 let square2 = 0;
@@ -25,16 +27,25 @@ function draw() {
 
   textSize(20)
   fill(0)
-  
-  if(retry == 1){
-    text("retry",300,400)
-  }
-  
 
-  if(player_turn == 0){
-    text("player 1 turn",20,20)
-  } else if(player_turn == 1){
-    text("player 2 turn",20,20)
+  if (win == 1) {
+    text(" player 1 wins", 40, 50)
+  } else if (win == 2) {
+    text("player 2 wins", 40, 50)
+  } else if (win == 3) {
+    text("its a tie", 40, 50)
+  }
+
+  if (retry == 1) {
+    text("retry", 300, 400)
+  }
+
+
+
+  if (player_turn == 0) {
+    text("player 1 turn", 20, 20)
+  } else if (player_turn == 1) {
+    text("player 2 turn", 20, 20)
   }
 
   fill(255)
@@ -51,18 +62,18 @@ function draw() {
   fill(255)
 
   if (square2 == 1) {
-    fill(255, 250, 0)
+    fill(red)
   } else if (square2 == 2) {
-    fill(0, 0, 255)
+    fill(blue)
   }
 
   square(175 + 10, 100, 75, 10)
   fill(255)
 
   if (square3 == 1) {
-    fill(255, 0, 255)
+    fill(red)
   } else if (square3 == 2) {
-    fill(255, 0, 100)
+    fill(blue)
   }
 
   square(250 + 20, 100, 75, 10)
@@ -71,27 +82,27 @@ function draw() {
   //eerste rij
 
   if (square4 == 1) {
-    fill(0, 100, 255)
+    fill(red)
   } else if (square4 == 2) {
-    fill(100, 0, 100)
+    fill(blue)
   }
 
   square(100, 175 + 10, 75, 10)
   fill(255)
 
-   if (square5 == 1) {
-    fill(0, 100, 255)
+  if (square5 == 1) {
+    fill(red)
   } else if (square5 == 2) {
-    fill(100, 0, 100)
+    fill(blue)
   }
 
   square(175 + 10, 175 + 10, 75, 10)
   fill(255)
 
   if (square6 == 1) {
-    fill(0, 100, 255)
+    fill(red)
   } else if (square6 == 2) {
-    fill(100, 0, 100)
+    fill(blue)
   }
 
 
@@ -100,9 +111,9 @@ function draw() {
   //tweede rij
 
   if (square7 == 1) {
-    fill(0, 100, 255)
+    fill(red)
   } else if (square7 == 2) {
-    fill(100, 0, 100)
+    fill(blue)
   }
 
   square(100, 250 + 20, 75, 10)
@@ -110,9 +121,9 @@ function draw() {
 
 
   if (square8 == 1) {
-    fill(0, 100, 255)
+    fill(red)
   } else if (square8 == 2) {
-    fill(100, 0, 100)
+    fill(blue)
   }
 
 
@@ -121,9 +132,9 @@ function draw() {
 
 
   if (square9 == 1) {
-    fill(0, 100, 255)
+    fill(red)
   } else if (square9 == 2) {
-    fill(100, 0, 100)
+    fill(blue)
   }
 
   square(250 + 20, 250 + 20, 75, 10)
@@ -135,183 +146,211 @@ function draw() {
 }
 
 function mousePressed() {
- 
-  //the code you see underneath here is copied
-  //from the mouse position en hover help page
+
   //when the mouse is pressed it
   //checks where the mouse is
   //if its in the right place it colors it
-  //
-  
-  if (square1 == 0) {
+  // checks if the square is 'empty'
+  // checks then if the mouse is in the correct position
+  // then sees if the player turn is 0 or 1
+  // and fills the square accordingly
+  // also you can just do 1 if statement with meusurement
+
+  if (square1 == 0 && game_state == "playing") {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
     ) {
-      if(player_turn == 0){
+      if (player_turn == 0) {
         square1 = 1
-      } else if (player_turn == 1){
+        player_turn++
+      } else if (player_turn == 1) {
         square1 = 2
-     }
-   }
-   
-  //1
+        player_turn--
+      }
+    }
+
+    //1
   }
-  
-  if (square2 == 0) {
+
+  if (square2 == 0 && game_state == "playing") {
     if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
     ) {
-      square2 = 1
-    }
-    else if (square2 == 1) {
-      if (mouseX > 250 + 10 && mouseX < 250 + 10 + 75 &&
-        mouseY > 100 && mouseY < 100 + 75
-      ) {
+      if (player_turn == 0) {
+        square2 = 1
+        player_turn++
+      } else if (player_turn == 1) {
         square2 = 2
+        player_turn--
       }
-    } else if (square2 == 2) {
-      square2 = 1
+
     }
   }
   //2
 
-  if (square3 == 0) {
+  if (square3 == 0 && game_state == "playing") {
     if (mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
     ) {
-      square3 = 1
-    }
-    else if (square3 == 1) {
-      if (mouseX > 250 + 10 && mouseX < 250 + 10 + 75 &&
-        mouseY > 100 && mouseY < 100 + 75
-      ) {
+      if (player_turn == 0) {
+        square3 = 1
+        player_turn++
+      } else if (player_turn == 1) {
         square3 = 2
+        player_turn--
       }
-    } else if (square3 == 2) {
-      square3 = 1
+
     }
   }
   //3
-  if (square4 == 0) {
+  if (square4 == 0 && game_state == "playing") {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
     ) {
-      square4 = 1
-    }
-    else if (square4 == 1) {
-      if (mouseX > 100  && mouseX < 100 + 75 &&
-        mouseY > 175 + 10 && mouseY < 100 + 75 + 10
-      ) {
+      if (player_turn == 0) {
+        square4 = 1
+        player_turn++
+      } else if (player_turn == 1) {
         square4 = 2
+        player_turn--
       }
-    } else if (square4 == 2) {
-      square4 = 1
     }
   }
-    //4
-    if (square5 == 0) {
+
+  //4
+  if (square5 == 0 && game_state == "playing") {
     if (mouseX > 175 + 10 && mouseX < 175 + 75 + 10 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
     ) {
-      square5 = 1
-    }
-    else if (square5 == 1) {
-      if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
-        mouseY > 175 + 10 && mouseY < 175 + 75 + 10
-      ) {
+      if (player_turn == 0) {
+        square5 = 1
+        player_turn++
+      } else if (player_turn == 1) {
         square5 = 2
+        player_turn--
       }
-    } else if (square5 == 2) {
-      square5 = 1
     }
   }
+
   //5
- if (square6 == 0) {
-    if (mouseX > 250 + 20  && mouseX < 250 + 75 + 20 &&
+  if (square6 == 0 && game_state == "playing") {
+    if (mouseX > 250 + 20 && mouseX < 250 + 75 + 20 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
     ) {
-      square6 = 1
-    }
-    else if (square6 == 1) {
-      if (mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
-        mouseY > 175 + 10 && mouseY < 175 + 75 + 10
-      ) {
+      if (player_turn == 0) {
+        square6 = 1
+        player_turn++
+      } else if (player_turn == 1) {
         square6 = 2
+        player_turn--
       }
-    } else if (square6 == 2) {
-      square6 = 1
     }
   }
- // square 6
+  // square 6
 
-  if (square7 == 0) {
+  if (square7 == 0 && game_state == "playing") {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 250 + 10 && mouseY < 250 + 75 + 10
     ) {
-      square7 = 1
-    }
-    else if (square7 == 1) {
-      if (mouseX > 100 + 20 && mouseX < 250  + 75 &&
-        mouseY > 250 + 20 && mouseY < 250 + 75 + 20
-      ) {
+      if (player_turn == 0) {
+        square7 = 1
+        player_turn++
+      } else if (player_turn == 1) {
         square7 = 2
+        player_turn--
       }
-    } else if (square7 == 2) {
-      square7 = 1
     }
   } // 7
 
-    if (square8 == 0) {
-    if (mouseX > 175 + 10 && mouseX < 175 + 75 + 10&&
+  if (square8 == 0 && game_state == "playing") {
+    if (mouseX > 175 + 10 && mouseX < 175 + 75 + 10 &&
       mouseY > 250 + 20 && mouseY < 250 + 75 + 20
     ) {
-      square8 = 1
-    }
-    else if (square8 == 1) {
-      if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
-        mouseY > 250 + 20 && mouseY < 250 + 75 + 20
-      ) {
+      if (player_turn == 0) {
+        square8 = 1
+        player_turn++
+      } else if (player_turn == 1) {
         square8 = 2
+        player_turn--
       }
-    } else if (square8 == 2) {
-      square8 = 1
     }
   }
   //8
 
-    if (square9 == 0) {
-    if (mouseX > 250 + 20 && mouseX < 250 + 75 + 10&&
+  if (square9 == 0 && game_state == "playing") {
+    if (mouseX > 250 + 20 && mouseX < 250 + 75 + 10 &&
       mouseY > 250 + 20 && mouseY < 250 + 75 + 20
     ) {
-      square9 = 1
-    }
-    else if (square9 == 1) {
-      if (mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
-        mouseY > 250 + 20 && mouseY < 250 + 75 + 20
-      ) {
+      if (player_turn == 0) {
+        square9 = 1
+        player_turn++
+      } else if (player_turn == 1) {
         square9 = 2
+        player_turn--
       }
-    } else if (square9 == 2) {
-      square9 = 1
     }
   }
- //9
+  //9
 
 
- //rety button
- if(retry == 1){
- if(mouseX > 300 && mouseX < 340 &&
-  mouseY > 380 && mouseY < 400
- ) {
-  retry = 0
- }
+  if (square1 == 1 && square2 == 1 && square3 == 1 ||
+    square4 == 1 && square5 == 1 && square6 == 1 || // rows
+    square7 == 1 && square8 == 1 && square9 == 1 ||
 
-} //player turns
-  if (player_turn == 0) {
+    square1 == 1 && square5 == 1 && square9 == 1 ||
+    square3 == 1 && square5 == 1 && square7 == 1 || // diagonal
 
-    player_turn = 1
-  } else if (player_turn == 1) {
+    square1 == 1 && square4 == 1 && square7 == 1 ||
+    square2 == 1 && square5 == 1 && square8 == 1 || // colums
+    square3 == 1 && square6 == 1 && square9 == 1
+  ) {
+    game_state = "over"
+    win = 1
+    retry = 1
+  } else if (square1 == 2 && square2 == 2 && square3 == 2 ||
+    square4 == 2 && square5 == 2 && square6 == 2 || // rows
+    square7 == 2 && square8 == 2 && square9 == 2 ||
 
-    player_turn = 0
+    square1 == 2 && square5 == 2 && square9 == 2 ||
+    square3 == 2 && square5 == 2 && square7 == 2 || // diagonal
+
+    square1 == 2 && square4 == 2 && square7 == 2 ||
+    square2 == 2 && square5 == 2 && square8 == 2 || // colums
+    square3 == 2 && square6 == 2 && square9 == 2) {
+    game_state = "over"
+    win = 2
+    retry = 1
+  } 
+
+    // win
+
+
+
+
+  //rety button
+  if (retry == 1) {
+    if (mouseX > 300 && mouseX < 340 &&
+      mouseY > 380 && mouseY < 400
+    ) {
+      retry = 0
+      square1 = 0
+      square2 = 0
+      square3 = 0
+      square4 = 0
+      square5 = 0
+      square6 = 0
+      square7 = 0
+      square8 = 0
+      square9 = 0
+      player_turn = 0
+      win = 0
+      game_state = "playing"
+    }
   }
-}
+
+  
+    // old notes or important
+    //player turns
+    // make sure it is at the bottom
+    // otherwise it is incorrec
+}   
