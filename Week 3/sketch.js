@@ -19,13 +19,18 @@ let square8 = 0;
 let square9 = 0;
 
 let red = "#ff0000";
-let blue = "#0400ff"
+let blue = "#0400ff";
 //variables
 
 function draw() {
-  background(220);
-
-  textSize(20)
+  if(player_turn == 0){
+    background(255,0,0,20);
+  } else if(player_turn == 1){
+    background(0,0,255,20)
+  }
+  
+  strokeWeight(5)
+  textSize(30)
   fill(0)
 
   if (win == 1) {
@@ -36,6 +41,7 @@ function draw() {
     text("its a tie", 40, 50)
   }
 
+   textSize(20)
   if (retry == 1) {
     text("retry", 300, 400)
   }
@@ -320,7 +326,16 @@ function mousePressed() {
     game_state = "over"
     win = 2
     retry = 1
-  } 
+    
+    // this code underneath makes the ties 
+    // it essentialy checks if all the squares are NOT 0 or "empty"
+  } else if (square1 != 0 && square2 != 0 && square3 != 0
+    && square4 != 0 && square5 != 0 && square6 != 0
+    && square7 != 0 && square8 != 0 && square9 != 0
+  ) {
+    win = 3
+    retry = 1
+  }
 
     // win
 
@@ -352,5 +367,6 @@ function mousePressed() {
     // old notes or important
     //player turns
     // make sure it is at the bottom
-    // otherwise it is incorrec
+    // otherwise it wil do stuff you dont want it to do
+    // order of things is incredubly important
 }   
