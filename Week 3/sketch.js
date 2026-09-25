@@ -2,6 +2,7 @@ function setup() {
   createCanvas(500, 500);
 }
 
+//variables
 let state_square = 0;
 let player_turn = 0;
 let retry = 0;
@@ -29,9 +30,10 @@ let line8 = "off"
 
 let red = "#ff0000";
 let blue = "#0400ff";
-//variables
+
 
 function draw() {
+  //backround changes color based on who turn it is
   if(player_turn == 0){
     background(255,0,0,20);
   } else if(player_turn == 1){
@@ -65,18 +67,21 @@ function draw() {
     text("player 2 turn", 20, 20)
   }
 
+  // here is one of the squares.
+  // if it is 1 it is red
+  // if it is 2 it is blue
+
+  //eerste rij
+
   fill(255)
   if (square1 == 1) {
     fill(red)
   } else if (square1 == 2) {
     fill(blue)
   }
-  // here is one of the squares.
-  // if it is 1 it is red
-  // if it is 2 it is blue
 
-  square(100, 100, 75, 10)
-  fill(255)
+  square(100, 100, 75, 10) //make sure that the square is at the end, so that it changes to the correct color
+  fill(255) // this here makes sure that one color change doesnt change everything else
 
   if (square2 == 1) {
     fill(red)
@@ -96,7 +101,7 @@ function draw() {
   square(250 + 20, 100, 75, 10)
   fill(255)
 
-  //eerste rij
+ //tweede rij
 
   if (square4 == 1) {
     fill(red)
@@ -125,8 +130,8 @@ function draw() {
 
   square(250 + 20, 175 + 10, 75, 10)
   fill(255)
-  //tweede rij
-
+  
+ //derde rij
   if (square7 == 1) {
     fill(red)
   } else if (square7 == 2) {
@@ -157,7 +162,8 @@ function draw() {
   square(250 + 20, 250 + 20, 75, 10)
   fill(255)
 
-  //derde rij
+ //here are the lines
+ //they show up when there is a three in a row.
 
   if(line1 == "on"){
     line(100+(75/2),90,100+(75/2),360)
@@ -192,8 +198,9 @@ function mousePressed() {
   // checks then if the mouse is in the correct position
   // then sees if the player turn is 0 or 1
   // and fills the square accordingly
-  // also you can just do 1 if statement with meusurement
+  // also you can just do 1 if statement and then do the actions
 
+  //1
   if (square1 == 0 && game_state == "playing") {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
@@ -207,9 +214,10 @@ function mousePressed() {
       }
     }
 
-    //1
+    
   }
 
+  //2
   if (square2 == 0 && game_state == "playing") {
     if (mouseX > 175 + 10 && mouseX < 175 + 10 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
@@ -224,8 +232,8 @@ function mousePressed() {
 
     }
   }
-  //2
-
+  
+  //3
   if (square3 == 0 && game_state == "playing") {
     if (mouseX > 250 + 20 && mouseX < 250 + 20 + 75 &&
       mouseY > 100 && mouseY < 100 + 75
@@ -240,7 +248,8 @@ function mousePressed() {
 
     }
   }
-  //3
+
+  //4
   if (square4 == 0 && game_state == "playing") {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
@@ -255,7 +264,7 @@ function mousePressed() {
     }
   }
 
-  //4
+  //5
   if (square5 == 0 && game_state == "playing") {
     if (mouseX > 175 + 10 && mouseX < 175 + 75 + 10 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
@@ -270,7 +279,7 @@ function mousePressed() {
     }
   }
 
-  //5
+  // 6
   if (square6 == 0 && game_state == "playing") {
     if (mouseX > 250 + 20 && mouseX < 250 + 75 + 20 &&
       mouseY > 175 + 10 && mouseY < 175 + 75 + 10
@@ -284,8 +293,8 @@ function mousePressed() {
       }
     }
   }
-  // square 6
-
+  
+  // 7
   if (square7 == 0 && game_state == "playing") {
     if (mouseX > 100 && mouseX < 100 + 75 &&
       mouseY > 250 + 10 && mouseY < 250 + 75 + 10
@@ -298,8 +307,9 @@ function mousePressed() {
         player_turn--
       }
     }
-  } // 7
+  } 
 
+  //8
   if (square8 == 0 && game_state == "playing") {
     if (mouseX > 175 + 10 && mouseX < 175 + 75 + 10 &&
       mouseY > 250 + 20 && mouseY < 250 + 75 + 20
@@ -313,8 +323,8 @@ function mousePressed() {
       }
     }
   }
-  //8
-
+  
+  //9
   if (square9 == 0 && game_state == "playing") {
     if (mouseX > 250 + 20 && mouseX < 250 + 75 + 10 &&
       mouseY > 250 + 20 && mouseY < 250 + 75 + 20
@@ -328,9 +338,12 @@ function mousePressed() {
       }
     }
   }
-  //9
+  
 
-
+  //here checks if when the squares are filled
+  // if there is a possibility that some one won
+  // it does this by checking every combination of wins
+  // and who won
   if (square1 == 1 && square2 == 1 && square3 == 1 ||
     square4 == 1 && square5 == 1 && square6 == 1 || // rows
     square7 == 1 && square8 == 1 && square9 == 1 ||
@@ -359,7 +372,7 @@ function mousePressed() {
     win = 2
     retry = 1
     
-    // this code underneath makes the ties 
+    // this code underneath makes the ties possible
     // it essentialy checks if all the squares are NOT 0 or "empty"
   } else if (square1 != 0 && square2 != 0 && square3 != 0
     && square4 != 0 && square5 != 0 && square6 != 0
