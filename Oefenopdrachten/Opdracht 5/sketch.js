@@ -8,6 +8,7 @@ function setup() {
 
 function draw() {
   background(220);
+  strokeWeight(1)
   fill(0)
   //nummers voor alles
   text("1",20,15)
@@ -61,8 +62,18 @@ function draw() {
 
  //5
  
- let circle_size = 0;
- for (let i = 0; i < 10; i++){
+ fill(255)
+ 
+ for (let i = 0; i < 6; i++){
+  strokeWeight(2*i)
+  circle(550+(30*i),50,25)
+ }
 
+ strokeWeight(1)
+ //6
+ for (let i = 0; i < 10; i++) {
+  fill(255,0,0)
+  circle(515,250,280-(28*i))
+  
  }
 }
