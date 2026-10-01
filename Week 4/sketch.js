@@ -5,53 +5,22 @@
 ['nine','ten','eleven','twelve','13','14'],
 ['holy']] */
 
-let random_number = [];
 
 let amount_vorms = [];
 
-let random_pos = [];
-let pos_x = 0;
-let pos_y = 0;
-let size = 0;
+let number_of_vorms = [];
 
-let colour = [];
-let r = 0;
-let g = 0;
-let b = 0;
-let transparancy = 0;
-let enable = "false";
 
 function setup() {
   createCanvas(800, 600);
-  strokeWeight(10)
-
-  
-  for(let i = 0; i < 10; i++){
-    r = round(random(0,256))
-    g = round(random(0,256))
-    b = round(random(0,256))
-    transparancy = round(random(50,100))
-    
-  }
-  colour.push(r,g,b,transparancy)
-
-  for(let i = 0; i < 5; i++){
-    pos_x = round(random(width))
-    pos_y = round(random(height))
-    size = round(random(9,61))
-  }random_pos.push(pos_x,pos_y,size)
-
-
-
 
 }
 
-
-
-
 function draw() {
   background(220);
+  strokeWeight(10)
 
+  
   /* dit hier was voor een oefeningen
   for(let i = 0; i < testing.length; i++){
     for(let j = 0; j < testing[i].length; j++){ // hier doe je het i boven gaat het testing ook naar boven
@@ -65,14 +34,40 @@ function draw() {
   text(testing[2][0],300,300)
  */
 
- fill(colour) //hier is een heel rare exeptie, waar normaal moet je aangeven aan een array van welke nummer je wilt nemen. hier hoeft het gewoon niet, waarom? weet ik niet
- 
- if(keyIsDown(8)){ //similiar to key is pressed but simpler
- for(let x = 0; x < 50; x++ ){
-  for(let y = 0; y < 50; y++ ){
-    square(random_pos[0]*x,random_pos[1]*y,random_pos[2])
-  }
- }
- }
+ //fill(colour) //hier is een heel rare exeptie, waar normaal moet je aangeven aan een array van welke nummer je wilt nemen. hier hoeft het gewoon niet, waarom? weet ik niet
 
+
+ //micheal helpt me here alot
+    if(keyIsDown(8)){ //similiar to key is pressed but simpler 
+      let color = [random(255), random(255), random(255),random(100,255)]
+      let rand_color = color;
+      let vormen = ["square","circle"];
+      let rand_vormen = random(vormen);
+      number_of_vorms.push({
+        c: rand_color,
+        x: random(0, width),
+        y: random(0, height), //michael helpt me here
+        s: random(20, 50),
+        v: rand_vormen,
+      });
+    }
+    for(let i = 0; i < number_of_vorms.length; i++){
+      fill(number_of_vorms[i].c)
+      switch (number_of_vorms[i].v){
+        case "square":
+          square(
+            number_of_vorms[i].x,
+            number_of_vorms[i].y,
+            number_of_vorms[i].s,
+          )
+          break
+        case "circle":
+          circle(
+            number_of_vorms[i].x,
+            number_of_vorms[i].y,
+            number_of_vorms[i].s,
+          )
+          break
+    }
+  }
 }
