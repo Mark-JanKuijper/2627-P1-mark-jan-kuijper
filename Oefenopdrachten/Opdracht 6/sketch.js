@@ -40,7 +40,7 @@ function draw() {
 
   //1
   let words_1 = ['red', 'green', 'blue', 'purple', 'yellow'];
-  for (let i = 0; i < words_1.length; i++) { //use length when you use arrays because it reads the thing
+  for (let i = 0; i < words_1.length; i++) { //use length when you use arrays because it reads the whole thing
     fill(words_1[i])
     text(words_1[i], 20, 25 + (i * 15))
   }
