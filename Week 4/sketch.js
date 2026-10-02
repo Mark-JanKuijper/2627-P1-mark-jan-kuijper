@@ -5,6 +5,7 @@
 ['nine','ten','eleven','twelve','13','14'],
 ['holy']] */
 
+//here are the variables
 
 let amount_vorms = [];
 
@@ -18,7 +19,8 @@ function setup() {
 
 function draw() {
   background(220);
-  strokeWeight(10)
+
+  strokeWeight(10)//here is how thick the lines are.
 
   
   /* dit hier was voor een oefeningen
@@ -39,29 +41,30 @@ function draw() {
 
  //micheal helpt me here alot
     if(keyIsDown(8)){ //similiar to key is pressed but simpler 
-      let color = [random(255), random(255), random(255),random(100,255)]
+      let color = [random(255), random(255), random(255),random(100,255)]//numbers are red, green, blue and the last one is for transparency
       let rand_color = color;
-      let vormen = ["square","circle"];
+      let vormen = ["square","circle"];//here are the shapes
       let rand_vormen = random(vormen);
-      number_of_vorms.push({
-        c: rand_color,
-        x: random(0, width),
-        y: random(0, height), //michael helpt me here
-        s: random(20, 50),
-        v: rand_vormen,
+      number_of_vorms.push({ //here is where they push the var into the arrays
+        c: rand_color, //here is color
+        x: random(0, width), //here is the x position
+        y: random(0, height), //here is the y position
+        s: random(20, 50), // here is the size
+        v: rand_vormen, // and here is the amount of shapes
+        
       });
     }
     for(let i = 0; i < number_of_vorms.length; i++){
       fill(number_of_vorms[i].c)
-      switch (number_of_vorms[i].v){
-        case "square":
-          square(
+      switch (number_of_vorms[i].v){ //micheal helpt here alot. il try to explain it the best i can.
+        case "square": // it reads the array and checks wich shape it is.
+          square( //so like if the shape is a square then it will draw a square
             number_of_vorms[i].x,
             number_of_vorms[i].y,
             number_of_vorms[i].s,
           )
           break
-        case "circle":
+        case "circle": // or if the shape is a circle then it will draw a circle
           circle(
             number_of_vorms[i].x,
             number_of_vorms[i].y,
