@@ -3,22 +3,24 @@
 
 let round = 0;
 
-let questions1 = 
-[["pong","tennis for 2","Super mario bros","Pac-Man"]
-,["link","zelda","ganondorf","mario"]]
-
-let questions2 = {
+let amount_questions = [
+  ,questions1 = {
+  vraag : "Wat was de eerste videospelletje ooit gemaakt?",
+  quest : ["pong","tennis for 2","Super mario bros","Pac-Man"],
+  correct : "tennis for 2"
+}
+  ,questions2 = {
   vraag : "Wie speel je in The Legend of Zelda?",
   quest : ["Link","Zelda","Ganondorf","Mario",], // you can also use arrays in object data
   correct : "Link"
-}
+}]
+
+
 
 let button1;
 let button2;
 let button3;
 let button4;
-
-let answer = true
 
 let X = 0;
 let Y = 0;
@@ -32,10 +34,10 @@ function setup() {
 
   createCanvas(800, 600);
 
-  button1 = createButton(questions1[0][0])
-  button2 = createButton(questions1[0][1])
-  button3 = createButton(questions1[0][2])
-  button4 = createButton(questions1[0][3])
+  button1 = createButton(questions1.quest[0])
+  button2 = createButton(questions1.quest[1])
+  button3 = createButton(questions1.quest[2])
+  button4 = createButton(questions1.quest[3])
 
   size_X = 250
   size_Y = 100
@@ -61,6 +63,7 @@ function setup() {
   button3.mousePressed(buttonPressed)
   button4.mousePressed(buttonPressed)
 
+
 }
 
 function draw() {
@@ -69,11 +72,17 @@ function draw() {
 } 
 
 function buttonPressed(){
-  if(answer == true){
-    console.log("true")
-  } else if (answer == false){
-    console.log("false")
+  
+  if(questions1.quest[1] == questions1.correct){
+    console.log("ok")
   }
+
+  /*for(let i = 0 ; i < questions1.quest.length; i++){
+     if(questions1.quest[i] == questions1.correct){
+    console.log("yes")
+  }
+  } */
+ 
 }
 
 
