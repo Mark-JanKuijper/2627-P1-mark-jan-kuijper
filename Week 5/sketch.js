@@ -8,10 +8,10 @@ let questions1 =
 ,["link","zelda","ganondorf","mario"]]
 
 let questions2 = {
-  quest1 : "Link",
-  quest2 : "Zelda",
-quest3 : "Ganondorf",
-quest4 : "Mario"}
+  vraag : "Wie speel je in The Legend of Zelda?",
+  quest : ["Link","Zelda","Ganondorf","Mario",], // you can also use arrays in object data
+  correct : "Link"
+}
 
 let button1;
 let button2;
@@ -25,7 +25,7 @@ let Y = 0;
 let size_X = 0;
 let size_Y = 0;
 
-//here are the variables of all the buttons
+//here are the variables
 
 
 function setup() {
@@ -65,6 +65,7 @@ function setup() {
 
 function draw() {
   background(100);
+
 } 
 
 function buttonPressed(){
@@ -74,3 +75,5 @@ function buttonPressed(){
     console.log("false")
   }
 }
+
+
