@@ -13,7 +13,22 @@ let amount_questions = [
   vraag : "Wie speel je in The Legend of Zelda?",
   quest : ["Link","Zelda","Ganondorf","Mario",], // you can also use arrays in object data
   correct : "Link"
-}]
+}
+ ,question3 = {
+  vraag : "Wie of wat groep ging Command and Conquer spelletjes maken na dat Westwood ging 'dood'?"
+  ,quest : ["EA","EA Los Angeles","Blizard","Activision"]
+  ,correct : "EA Los Angeles"
+ }
+ ,question4 ={
+  vraag: "Wat speel is geïnspireerd of direct met het animatie style 'rubber-hose'?"
+  ,quest :["Paper,Please","Team Fortress 2","Doom","Cuphead"]
+  ,correct:"Cuphead"
+ }
+ ,question5 ={
+  vraag:"Voordat Bethesda Fallout 3 ging maken, wie ging Fallout 1 en 2 maken? "
+  ,quest:["Interplay Entertainment","Micro Forté","Black Isle Studio","14 Degrees East"]
+  ,correct:"Black Isle Studio"
+ }]
 
 
 
