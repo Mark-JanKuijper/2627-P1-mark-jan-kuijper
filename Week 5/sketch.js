@@ -28,7 +28,33 @@ let amount_questions = [
   vraag:"Voordat Bethesda Fallout 3 ging maken, wie ging Fallout 1 en 2 maken? "
   ,quest:["Interplay Entertainment","Micro Forté","Black Isle Studio","14 Degrees East"]
   ,correct:"Black Isle Studio"
- }]
+ }
+,question6 ={
+  vraag:"Welke studio ging Sly Cooper en Ghost of Yotei maken?"
+  ,quest:["Sucker Punch","Sony","Naughty Dog","Ubisoft"]
+  ,correct:"Sucker Punch",
+}
+,question7 ={
+  vraag:"Je kon een naai machine gebruiken met wat?"
+  ,quest:["Playstation 2","Game Boy","Xbox 360","Playstation Vita"]
+  ,correct:"Game Boy"
+}
+,question8 ={
+  vraag:"____ does wat Nintendon't, welke bedrijf ging dit slogan gebruiken?"
+  ,quest:["Activision","Xbox","Playstation","Sega"]
+  ,correct:"Sega"
+}
+,question9 ={
+  vraag:"Waarneer ging het bedrijf Jackbox games zijn eerste spelletje uitbrengen? "
+  ,quest:["2015","1999","1995","2018"]
+  ,correct:"1995"
+}
+,question10 ={
+  vraag:"Wat ging Nintendo eerst maken?"
+  ,quest:["Super Mario","Clothing","Donkey Kong","Hanafuda kaarten"]
+  ,correct:"Hanafuda kaarten"
+}]
+
 
 
 
@@ -73,10 +99,10 @@ function setup() {
 
   button4.position(X*3.5, Y*2)
 
-  button1.mousePressed(buttonPressed)
-  button2.mousePressed(buttonPressed)
-  button3.mousePressed(buttonPressed)
-  button4.mousePressed(buttonPressed)
+  button1.mousePressed(buttonPressed1)
+  button2.mousePressed(buttonPressed2)
+  button3.mousePressed(buttonPressed3)
+  button4.mousePressed(buttonPressed4)
 
 
 }
@@ -86,18 +112,22 @@ function draw() {
 
 } 
 
-function buttonPressed(){
+function buttonPressed1(){
   
   if(questions1.quest[1] == questions1.correct){
     console.log("ok")
   }
+}
 
-  /*for(let i = 0 ; i < questions1.quest.length; i++){
-     if(questions1.quest[i] == questions1.correct){
-    console.log("yes")
-  }
-  } */
- 
+function buttonPressed2(){
+}
+
+function buttonPressed3(){
+
+}
+
+function buttonPressed4(){
+
 }
 
 
