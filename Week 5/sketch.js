@@ -3,7 +3,6 @@
 
 let round = 0;
 
-
 let score = 0;
 
 let amount_questions = [
@@ -33,7 +32,7 @@ let amount_questions = [
   ,correct:"Black Isle Studio"
  }
 ,question6 ={
-  vraag:"Welke studio ging Sly Cooper en Ghost of Yotei maken?"
+  vraag:"Welke studio ging Sly Cooper en Ghost of Tsushima maken?"
   ,quest:["Sucker Punch","Sony","Naughty Dog","Ubisoft"]
   ,correct:"Sucker Punch",
 }
@@ -61,11 +60,6 @@ let amount_questions = [
   ,quest:["the","quiz","has","ended"]
   ,correct:"ended"
 }]
-
-function voorbeeld(){
-
-}
-
 
 let button1;
 let button2;
