@@ -5,6 +5,15 @@ let round = 0;
 
 let score = 0;
 
+let imagepath = ['week 5 images/arcade cabinet.jpg','week 5 images/Legend of zelda.avif',
+  'week 5 images/Westwood.webp','week 5 images/Rubberhose.jpg','week 5 images/Bethesda.png',
+  'week 5 images/sly cooper ghost of tsushima.jpg','week 5 images/naai-machine.webp',
+  'week 5 images/SEGA_does_edit.png','week 5 images/Jackbox-Games-Logo.webp',
+  'week 5 images/Nintendo.jpg','week 5 images/Thanks.png'
+]
+
+let image_quest = []
+
 let amount_questions = [
   questions1 = {
   vraag : "Wat was de eerste videospelletje ooit gemaakt?",
@@ -73,6 +82,12 @@ let size_Y = 0;
 
 //here are the variables
 
+function preload(){
+  for (let i = 0; i < imagepath.length; i++){
+    image_quest.push(loadImage(imagepath[i]))
+  }
+}
+
 function setup() {
 
   createCanvas(800, 600);
@@ -112,6 +127,14 @@ function setup() {
 function draw() {
   background(100);
 
+  X = 250
+  Y = 290
+  size_X = 180
+  size_Y = 180
+
+
+  image(image_quest[round],X,Y,size_X,size_Y)
+
   fill(0)
 
   textSize(15)
@@ -120,13 +143,16 @@ function draw() {
 
   text("score:"+score,20,20)//score
 
+
 } 
 
 function buttonPressed1(){
   if(amount_questions[round].quest[0] == amount_questions[round].correct){
+
     round ++
     score++
   } else round++
+
   button1.html(amount_questions[round].quest[0])//hier kan je een '.html' om de buttons text te veranderen
   button2.html(amount_questions[round].quest[1])
   button3.html(amount_questions[round].quest[2])
@@ -135,10 +161,11 @@ function buttonPressed1(){
 
 function buttonPressed2(){
    if(amount_questions[round].quest[1] == amount_questions[round].correct){
-    console.log("hello")
+
     round++
     score++
   }else round++
+
   button1.html(amount_questions[round].quest[0])
   button2.html(amount_questions[round].quest[1])
   button3.html(amount_questions[round].quest[2])
@@ -147,10 +174,11 @@ function buttonPressed2(){
 
 function buttonPressed3(){
    if(amount_questions[round].quest[2] == amount_questions[round].correct){
-    console.log("hello")
+
     round++
     score++
   }else round++
+
   button1.html(amount_questions[round].quest[0])
   button2.html(amount_questions[round].quest[1])
   button3.html(amount_questions[round].quest[2])
@@ -159,10 +187,11 @@ function buttonPressed3(){
 
 function buttonPressed4(){
    if(amount_questions[round].quest[3] == amount_questions[round].correct){
-    console.log("hello")
+
     round++
     score++
   }else round++
+
   button1.html(amount_questions[round].quest[0])
   button2.html(amount_questions[round].quest[1])
   button3.html(amount_questions[round].quest[2])
