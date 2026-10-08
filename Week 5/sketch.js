@@ -3,8 +3,11 @@
 
 let round = 0;
 
+
+let score = 0;
+
 let amount_questions = [
-  ,questions1 = {
+  questions1 = {
   vraag : "Wat was de eerste videospelletje ooit gemaakt?",
   quest : ["pong","tennis for 2","Super mario bros","Pac-Man"],
   correct : "tennis for 2"
@@ -53,9 +56,15 @@ let amount_questions = [
   vraag:"Wat ging Nintendo eerst maken?"
   ,quest:["Super Mario","Clothing","Donkey Kong","Hanafuda kaarten"]
   ,correct:"Hanafuda kaarten"
+},ending = {
+  vraag: "weldone!"
+  ,quest:["the","quiz","has","ended"]
+  ,correct:"ended"
 }]
 
+function voorbeeld(){
 
+}
 
 
 let button1;
@@ -70,15 +79,14 @@ let size_Y = 0;
 
 //here are the variables
 
-
 function setup() {
 
   createCanvas(800, 600);
 
-  button1 = createButton(questions1.quest[0])
-  button2 = createButton(questions1.quest[1])
-  button3 = createButton(questions1.quest[2])
-  button4 = createButton(questions1.quest[3])
+  button1 = createButton(amount_questions[round].quest[0])
+  button2 = createButton(amount_questions[round].quest[1])
+  button3 = createButton(amount_questions[round].quest[2])
+  button4 = createButton(amount_questions[round].quest[3])
 
   size_X = 250
   size_Y = 100
@@ -110,26 +118,61 @@ function setup() {
 function draw() {
   background(100);
 
-  text()
+  fill(0)
+
+  textSize(15)
+
+  text(amount_questions[round].vraag,5,500)//vraag hier
+
+  text("score:"+score,20,20)//score
 
 } 
 
 function buttonPressed1(){
-  
-  if(questions1.quest[1] == questions1.correct){
-    console.log("ok")
-  }
+  if(amount_questions[round].quest[0] == amount_questions[round].correct){
+    round ++
+    score++
+  } else round++
+  button1.html(amount_questions[round].quest[0])//hier kan je een '.html' om de buttons text te veranderen
+  button2.html(amount_questions[round].quest[1])
+  button3.html(amount_questions[round].quest[2])
+  button4.html(amount_questions[round].quest[3])
 }
 
 function buttonPressed2(){
+   if(amount_questions[round].quest[1] == amount_questions[round].correct){
+    console.log("hello")
+    round++
+    score++
+  }else round++
+  button1.html(amount_questions[round].quest[0])
+  button2.html(amount_questions[round].quest[1])
+  button3.html(amount_questions[round].quest[2])
+  button4.html(amount_questions[round].quest[3])
 }
 
 function buttonPressed3(){
-
+   if(amount_questions[round].quest[2] == amount_questions[round].correct){
+    console.log("hello")
+    round++
+    score++
+  }else round++
+  button1.html(amount_questions[round].quest[0])
+  button2.html(amount_questions[round].quest[1])
+  button3.html(amount_questions[round].quest[2])
+  button4.html(amount_questions[round].quest[3])
 }
 
 function buttonPressed4(){
-
+   if(amount_questions[round].quest[3] == amount_questions[round].correct){
+    console.log("hello")
+    round++
+    score++
+  }else round++
+  button1.html(amount_questions[round].quest[0])
+  button2.html(amount_questions[round].quest[1])
+  button3.html(amount_questions[round].quest[2])
+  button4.html(amount_questions[round].quest[3])
 }
 
 
