@@ -110,6 +110,8 @@ function setup() {
 function draw() {
   background(100);
 
+  text()
+
 } 
 
 function buttonPressed1(){

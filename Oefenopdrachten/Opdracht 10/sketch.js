@@ -40,9 +40,13 @@ let voorbeeld2
 
 let loaded_animals = [];
 
+let gekozen_dier = 0;
+
 function preload(){
   for(let i = 0; i < bestanden.length; i++){
-    
+
+    //bestanden[i],{name:i} for bugs
+
     afbeeldingen.push("animals/" + (bestanden[i]) + ".png")
     loaded_animals.push(loadImage(afbeeldingen[i]))
   }
@@ -87,8 +91,8 @@ function draw() {
 
   image(voorbeeld2,20,50,20,20,)
 
-  image(loaded_animals[0],200,200,20,20)
-
+  image(loaded_animals[gekozen_dier],200,200,20,20) 
+ //belangerrijke ding hier is dat het is best dat je een variabelen gebruikt voor als de teller
  
 }
 
@@ -173,54 +177,95 @@ function buttonYellow()
 
 function button_elephant(){
 
-    for(let i = 0; i < loaded_animals.length; i++){
-    if(loaded_animals[i] != loaded_animals[0]){
-      loaded_animals[i] = loaded_animals[0]
+  gekozen_dier = 0
 
-    }else loaded_animals[i] = loaded_animals[0]
-  } 
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
+  }
+  knoppen2[0].hide()
 
 }
 
 function button_giraffe(){
 
-  for(let i = 0; i < loaded_animals.length; i++){
-    if(loaded_animals[i] != loaded_animals[1]){
-      loaded_animals[i] = loaded_animals[1]
+  gekozen_dier = 1
 
-    }else loaded_animals[i] = loaded_animals[0]
+  for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
   }
 
+  knoppen2[1].hide()
 }
 function button_hippo(){
+  gekozen_dier = 2
 
-  for(let i = 0; i < loaded_animals.length; i++){
-    if(loaded_animals[i] != loaded_animals[2]){
-      loaded_animals[i] = loaded_animals[2]
-
-    }else loaded_animals[i] = loaded_animals[0]
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
   }
 
+  knoppen2[2].hide()
 }
 
 function button_monkey(){
-  
+  gekozen_dier = 3
+
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
+  }
+
+  knoppen2[3].hide()
 }
 function button_panda(){
-  
+  gekozen_dier = 4
+
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
+  }
+
+  knoppen2[4].hide()
 }
 function  button_parrot(){
-  
+  gekozen_dier = 5
+
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
+  }
+
+  knoppen2[5].hide()
 }
 function  button_penguin(){
-  
+  gekozen_dier = 6
+
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
+  }
+
+  knoppen2[6].hide()
 }
 function  button_pig(){
-  
+  gekozen_dier = 7
+
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
+  }
+
+  knoppen2[7].hide()
 }
 function  button_rabbit(){
-  
+  gekozen_dier = 8
+
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
+  }
+
+  knoppen2[8].hide()
 }
 function  button_snake(){
-  
+  gekozen_dier = 9
+
+    for(let i = 0; i < loaded_animals.length; i++){
+    knoppen2[i].show()
+  }
+
+  knoppen2[9].hide()
 }
