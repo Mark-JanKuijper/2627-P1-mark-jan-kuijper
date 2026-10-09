@@ -78,7 +78,6 @@ let button2;
 let button3;
 let button4;
 let button5;
-let button6;
 
 let X = 0;
 let Y = 0;
