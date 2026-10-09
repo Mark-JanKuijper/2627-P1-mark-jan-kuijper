@@ -5,7 +5,7 @@ let round = 0;
 
 let score = 0; 
 
-let answer = 2;
+let answer = 2; //dit is 2 om te voorzogen dat het text niet ontmedelijk zichbaat is
 
 let imagepath = ['week 5 images/arcade cabinet.jpg','week 5 images/Legend of zelda.avif',
   'week 5 images/Westwood.webp','week 5 images/Rubberhose.jpg','week 5 images/Bethesda.png',
