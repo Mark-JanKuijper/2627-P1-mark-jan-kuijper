@@ -133,6 +133,10 @@ function draw() {
   size_X = 180
   size_Y = 180
 
+  if(round >= 10){ //this ensure that the quiz doesnt bug out when you click on the quest after it ends
+    round = 10 // or wel it stil does bug out just that you dont see it bug out
+  }
+
 
   image(image_quest[round],X,Y,size_X,size_Y)
 
