@@ -5,6 +5,8 @@ let round = 0;
 
 let score = 0; 
 
+let answer = 2;
+
 let imagepath = ['week 5 images/arcade cabinet.jpg','week 5 images/Legend of zelda.avif',
   'week 5 images/Westwood.webp','week 5 images/Rubberhose.jpg','week 5 images/Bethesda.png',
   'week 5 images/sly cooper ghost of tsushima.jpg','week 5 images/naai-machine.webp',
@@ -148,16 +150,24 @@ function draw() {
 
   text("score:"+score,20,20)//score
 
+  if(answer == true){//dit hier laat zien of je de correct optie hebt gekozen
+    text("true",20,40)
+  } else if (answer == false){
+    text("false",20,40)
+  }
+
+
 
 } 
 
 function buttonPressed1(){
   //hier checkt het button of de quest dezelde is als het antwoord 
   if(amount_questions[round].quest[0] == amount_questions[round].correct){
-    
+    answer = true
     round ++
     score++
-  } else round++
+    
+  } else round++ ,answer = false
 
   button1.html(amount_questions[round].quest[0])//hier kan je een '.html' om de buttons text te veranderen
   button2.html(amount_questions[round].quest[1])
@@ -167,10 +177,10 @@ function buttonPressed1(){
 
 function buttonPressed2(){
    if(amount_questions[round].quest[1] == amount_questions[round].correct){
-
+    answer = true
     round++
     score++
-  }else round++
+  }else round++,answer = false
 
   button1.html(amount_questions[round].quest[0])
   button2.html(amount_questions[round].quest[1])
@@ -180,10 +190,10 @@ function buttonPressed2(){
 
 function buttonPressed3(){
    if(amount_questions[round].quest[2] == amount_questions[round].correct){
-
+    answer = true
     round++
     score++
-  }else round++
+  }else round++,answer = false
 
   button1.html(amount_questions[round].quest[0])
   button2.html(amount_questions[round].quest[1])
@@ -193,10 +203,10 @@ function buttonPressed3(){
 
 function buttonPressed4(){
    if(amount_questions[round].quest[3] == amount_questions[round].correct){
-
+    answer = true
     round++
     score++
-  }else round++
+  }else round++,answer = false
 
   button1.html(amount_questions[round].quest[0])
   button2.html(amount_questions[round].quest[1])
