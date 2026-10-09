@@ -1,19 +1,20 @@
 
 
-
+//here are the variables
 let round = 0;
 
-let score = 0;
+let score = 0; 
 
 let imagepath = ['week 5 images/arcade cabinet.jpg','week 5 images/Legend of zelda.avif',
   'week 5 images/Westwood.webp','week 5 images/Rubberhose.jpg','week 5 images/Bethesda.png',
   'week 5 images/sly cooper ghost of tsushima.jpg','week 5 images/naai-machine.webp',
   'week 5 images/SEGA_does_edit.png','week 5 images/Jackbox-Games-Logo.webp',
   'week 5 images/Nintendo.jpg','week 5 images/Thanks.png'
-]
+] //hier is waar alle images zijn
 
 let image_quest = []
 
+//hier zijn alle vragen
 let amount_questions = [
   questions1 = {
   vraag : "Wat was de eerste videospelletje ooit gemaakt?",
@@ -80,8 +81,8 @@ let Y = 0;
 let size_X = 0;
 let size_Y = 0;
 
-//here are the variables
 
+//hier for de images
 function preload(){
   for (let i = 0; i < imagepath.length; i++){
     image_quest.push(loadImage(imagepath[i]))
@@ -92,7 +93,7 @@ function setup() {
 
   createCanvas(800, 600);
 
-  button1 = createButton(amount_questions[round].quest[0])
+  button1 = createButton(amount_questions[round].quest[0])//buttons hier hebben de text van de vragen
   button2 = createButton(amount_questions[round].quest[1])
   button3 = createButton(amount_questions[round].quest[2])
   button4 = createButton(amount_questions[round].quest[3])
@@ -147,8 +148,9 @@ function draw() {
 } 
 
 function buttonPressed1(){
+  //hier checkt het button of de quest dezelde is als het antwoord 
   if(amount_questions[round].quest[0] == amount_questions[round].correct){
-
+    
     round ++
     score++
   } else round++
