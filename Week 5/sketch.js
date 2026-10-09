@@ -134,7 +134,7 @@ function setup() {
 }
 
 function draw() {
-  background(100);
+  background(200);
 
   X = 250
   Y = 290
