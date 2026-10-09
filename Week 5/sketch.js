@@ -77,6 +77,8 @@ let button1;
 let button2;
 let button3;
 let button4;
+let button5;
+let button6;
 
 let X = 0;
 let Y = 0;
@@ -99,6 +101,7 @@ function setup() {
   button2 = createButton(amount_questions[round].quest[1])
   button3 = createButton(amount_questions[round].quest[2])
   button4 = createButton(amount_questions[round].quest[3])
+  button5 = createButton("redo")
 
   size_X = 250
   size_Y = 100
@@ -107,6 +110,7 @@ function setup() {
   button2.size(size_X, size_Y)
   button3.size(size_X, size_Y)
   button4.size(size_X, size_Y)
+  
   
   X = 100
   Y = 100
@@ -119,10 +123,13 @@ function setup() {
 
   button4.position(X*3.5, Y*2)
 
+  button5.position(X*3,Y*5.5)
+
   button1.mousePressed(buttonPressed1)
   button2.mousePressed(buttonPressed2)
   button3.mousePressed(buttonPressed3)
   button4.mousePressed(buttonPressed4)
+  button5.mousePressed(buttonPressed5)
 
 
 }
@@ -213,5 +220,15 @@ function buttonPressed4(){
   button3.html(amount_questions[round].quest[2])
   button4.html(amount_questions[round].quest[3])
 }
+
+function buttonPressed5(){
+  round = 0
+  score = 0
+  button1.html(amount_questions[round].quest[0])
+  button2.html(amount_questions[round].quest[1])
+  button3.html(amount_questions[round].quest[2])
+  button4.html(amount_questions[round].quest[3])
+}
+
 
 
