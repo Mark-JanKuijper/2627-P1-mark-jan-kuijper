@@ -1,4 +1,5 @@
 
+// hier zijn alle variabelen
 let food = 100;
 
 let energy = 100;
@@ -7,10 +8,36 @@ let clean = 100;
 
 let happenis = 100;
 
+let images = ['week 6 png/Cultist_dirt.png','week 6 png/Cultist_dirt2.png','week 6 png/Cultist_entertain.png','week 6 png/Cultist_entertain2.png',
+  'week 6 png/Cultist_happy.png','week 6 png/Cultist_happy2.png','week 6 png/Cultist_hunger.png',
+  'week 6 png/Cultist_hunger2.png','week 6 png/Cultist_neut.png','week 6 png/Cultist_neut2.png',
+  'week 6 png/Cultist_sleep.png','week 6 png/Cultist_sleep2.png'
+]//dit hier zijn voor de afbeeldingen
+/*
+ 0 en 1 zin voor viezigheid
+ 2 en 3 zijn voor bored
+ 4 en 5 zijn voor  blijheid
+ 6 en 7 zijn voor honger
+ 8 en 9 zijn voor neutraal
+ 10 en 11 zijn voor slaperigheid
+
+*/
+let image_final = []//dit is for het loading van alle afbeeldingen
+
 let X = 0
 
 let Y = 0
 
+let size_X = 0
+
+let size_Y = 0
+
+
+function preload(){
+  for(let i = 0; i < images.length; i ++){
+    image_final.push(loadImage(images[i]))
+  }
+}
 // hier zijn alle buttons
 let button_food
 let button_energy
@@ -18,25 +45,50 @@ let button_clean
 let button_happenis
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(500, 500);
 
+  //set up voor all de buttons
   button_food = createButton("feed")
   button_energy = createButton("sleep")
   button_clean = createButton("clean")
-  button_happines = createButton("enjoyment")
+  button_happenis = createButton("enjoyment")
 
   button_food.mousePressed(buttonPressed_food)
   button_energy.mousePressed(buttonPressed_energy)
   button_clean.mousePressed(buttonPressed_clean)
-  button_happines.mousePressed(buttonPressed_happines)
+  button_happenis.mousePressed(buttonPressed_happines)
 
+  X = 100
+  Y = 400
+  size_X = 70
+  size_Y = 70
 
+  button_food.size(size_X,size_Y)
+  button_energy.size(size_X,size_Y)
+  button_clean.size(size_X,size_Y)
+  button_happenis.size(size_X,size_Y)
+
+  button_food.position(X,Y)
+  button_energy.position(X+(size_X),Y)
+  button_clean.position(X+(size_X*2),Y)
+  button_happenis.position(X+(size_X*3),Y)
+
+// hier is waar de waarden van honger schoonheid energy en blijheid minder worden
+  setInterval(food_drain,2000) // set interval is sort of like delta time
+  setInterval(energy_drain,5000)
+  setInterval(clean_drain,2500)
+  setInterval(happy_drain,8000)
+
+ food = getItem("fullnes",food)
+ energy = getItem("energy",energy)
+ clean = getItem("clean",clean)
+ happenis = getItem("happenis",happenis)
 }
 
 function draw() {
   background(220);
 
-  fill(0)
+  fill(0)// dit hier fill is voor de text
 
   Y = 20
   X = 20
@@ -55,12 +107,22 @@ function draw() {
 
   text("happy "+happenis,X,Y)
 
-  text(frameCount,20,120)// voorbeeld om het frames to lezen
+  text("framecount "+ frameCount,20,120)// voorbeeld om het frames to lezen
+
+  text(deltaTime,20,140)
+
+   X = 100
+   Y = 100
+   size_X = 10
+   size_Y = 10
+
+   fill(100)
+
+   rect(X*3,Y,size_X,size_Y)
 
   frameRate(5)
 
-  fill(255)
-
+ //this ensures that it cant go into the negatives
  if(food <= 0){
   food = 0
  }
@@ -77,22 +139,40 @@ function draw() {
   happenis = 0
  }
 
-  if(food <= 0){
-    text("your pet has died of starvation",X,Y + 20)
-  }
+ //hier stores all the information and reads it
+ storeItem("fullnes",food)
+ storeItem("energy",energy)
+ storeItem("clean",clean)
+ storeItem("happenis",happenis)
+
+  X = 75
+  Y = 100
+
+  size_X = 100
+  size_Y = 120
+
+ 
+ //hier word het images geplaatst
    if(food <= 25){
-    fill("yellow")
-   }
-   if(energy <= 25){
-    fill("blue")
-   }
-   if(clean <= 25){
-    fill("brown")
-   }
-   if(happenis <= 25){
-    fill("orange")
-   }
-  square(20,200,50) //palce holder replace later
+
+    image(image_final[6],X,Y,size_X*2,size_Y*2)
+
+   } else if(energy <= 25){
+
+    image(image_final[10],X,Y,size_X*2,size_Y*2)
+
+   } else if(clean <= 25){
+
+    image(image_final[0],X,Y,size_X*2,size_Y*2)
+
+   } else if(happenis <= 25){
+
+    image(image_final[2],X,Y,size_X*2,size_Y*2)
+
+   } else image(image_final[8],X,Y,size_X*2,size_Y*2)
+
+
+
   
   
 }
@@ -105,7 +185,6 @@ function buttonPressed_food(){
   food = 100
  }
  clean -= 5
- happenis -= 5
 }
 function buttonPressed_energy(){
   food -= 10
@@ -122,12 +201,25 @@ function buttonPressed_clean(){
   }
 }
 function buttonPressed_happines(){
-  energy -= 15
-  food -= 10
+  energy -= 10
+  food -= 5
   clean -= 5
   happenis += 10
     if(happenis >= 100){
     happenis = 100
   }
 
+}
+
+function food_drain(){
+  food -= 5
+}
+function energy_drain(){
+  energy -= 10
+}
+function clean_drain(){
+  clean -= 2
+}
+function happy_drain(){
+ happenis -= 5
 }
