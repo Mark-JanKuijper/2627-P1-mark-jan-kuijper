@@ -137,9 +137,9 @@ function draw() {
 
   text("fullness "+food,X/10,Y/3)
 
-  text("energy "+energy,X*1.2,Y/3)
+  text("energy "+energy,X/10,Y/1.25)
 
-  text("cleanliness "+clean,X/10,Y/1.25)
+  text("cleanliness "+clean,X*1.2,Y/3)
 
   text("happy "+happenis,X*1.2,Y/1.25)
 
