@@ -8,11 +8,26 @@ let clean = 100;
 
 let happenis = 100;
 
-let images = ['week 6 png/Cultist_dirt.png','week 6 png/Cultist_dirt2.png','week 6 png/Cultist_entertain.png','week 6 png/Cultist_entertain2.png',
+let minigame1 = false;
+
+let button_hide = false;
+
+//victim images
+let image_victim = ['week 6 png/victim1_alive.png','week 6 png/victim1_dead.png'];
+
+let image_victim_final = [];
+
+//achtergrond images
+let image_backround = ['week 6 png/minigame backround1.png'];
+
+let image_final_backround = [];
+
+//dit hier zijn voor de afbeeldingen voor de cultist
+let images_cultist = ['week 6 png/Cultist_dirt.png','week 6 png/Cultist_dirt2.png','week 6 png/Cultist_entertain.png','week 6 png/Cultist_entertain2.png',
   'week 6 png/Cultist_happy.png','week 6 png/Cultist_happy2.png','week 6 png/Cultist_hunger.png',
   'week 6 png/Cultist_hunger2.png','week 6 png/Cultist_neut.png','week 6 png/Cultist_neut2.png',
   'week 6 png/Cultist_sleep.png','week 6 png/Cultist_sleep2.png'
-]//dit hier zijn voor de afbeeldingen
+]
 /*
  0 en 1 zijn voor viezigheid
  2 en 3 zijn voor bored
@@ -22,7 +37,7 @@ let images = ['week 6 png/Cultist_dirt.png','week 6 png/Cultist_dirt2.png','week
  10 en 11 zijn voor slaperigheid
 
 */
-let image_final = []//dit is for het loading van alle afbeeldingen
+let image_final_cult = []//dit is for het loading van alle afbeeldingen
 
 let anim_move = 0;
 
@@ -35,9 +50,15 @@ let size_X = 0
 let size_Y = 0
 
 
-function preload(){
-  for(let i = 0; i < images.length; i ++){
-    image_final.push(loadImage(images[i]))
+function preload(){//hier worden alle images geloadded in
+  for(let i = 0; i < images_cultist.length; i ++){
+    image_final_cult.push(loadImage(images_cultist[i]))
+  }
+  for(let i = 0; i < image_backround.length; i++){
+    image_final_backround.push(loadImage(image_backround[i]))
+  }
+   for(let i = 0; i < image_victim.length; i++){
+    image_victim_final.push(loadImage(image_victim[i]))
   }
 }
 // hier zijn alle buttons
@@ -64,7 +85,7 @@ function setup() {
   button_redo.mousePressed(buttonPressed_redo)
 
   X = 100
-  Y = 400
+  Y = 438 //dit hier is precies 438 zodat de buttons netjes op de "grond" zitten
   size_X = 70
   size_Y = 70
 
@@ -177,28 +198,38 @@ function draw() {
 
    if(food <= 35){
 
-    image(image_final[6 + anim_move],X,Y,size_X*2,size_Y*2)
+    image(image_final_cult[6 + anim_move],X,Y,size_X*2,size_Y*2)
 
    } else if(energy <= 35){
 
-    image(image_final[10 + anim_move],X,Y,size_X*2,size_Y*2)
+    image(image_final_cult[10 + anim_move],X,Y,size_X*2,size_Y*2)
 
    } else if(clean <= 35){
 
-    image(image_final[0 + anim_move],X,Y,size_X*2,size_Y*2)
+    image(image_final_cult[0 + anim_move],X,Y,size_X*2,size_Y*2)
 
    } else if(happenis <= 35){
 
-    image(image_final[2 + anim_move],X,Y,size_X*2,size_Y*2)
+    image(image_final_cult[2 + anim_move],X,Y,size_X*2,size_Y*2)
 
-   } else image(image_final[8 + anim_move],X,Y,size_X*2,size_Y*2)
+   } else image(image_final_cult[8 + anim_move],X,Y,size_X*2,size_Y*2)
   
+   //here is the minigame section
+   X = 0
+   Y = 100
+   size_X = 500
+   size_Y = 340
+   if(minigame1 == true){
+    console.log("check")
+    image(image_final_backround[0],X,Y,size_X,size_Y)
+
+   }
 }
 
 // hier zijn alle button functies
 function buttonPressed_food(){
  
- food += 10
+ food += 25
  if(food >= 100){
   food = 100
  }
@@ -227,6 +258,24 @@ function buttonPressed_happines(){
     if(happenis >= 100){
     happenis = 100
   }
+  
+  if(minigame1 == true){
+    minigame1 = false
+  } else {minigame1 = true}
+
+  console.log(button_clean)
+
+    if(button_hide == false){
+    button_clean.show()
+    button_food.show()
+    button_energy.show()
+    } else {
+      console.log("button")
+    button_clean.hide()
+    button_food.hide()
+    button_energy.hide()}
+
+   
 
 }
 function buttonPressed_redo(){
