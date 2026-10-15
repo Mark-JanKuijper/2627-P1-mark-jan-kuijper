@@ -14,7 +14,7 @@ let images = ['week 6 png/Cultist_dirt.png','week 6 png/Cultist_dirt2.png','week
   'week 6 png/Cultist_sleep.png','week 6 png/Cultist_sleep2.png'
 ]//dit hier zijn voor de afbeeldingen
 /*
- 0 en 1 zin voor viezigheid
+ 0 en 1 zijn voor viezigheid
  2 en 3 zijn voor bored
  4 en 5 zijn voor  blijheid
  6 en 7 zijn voor honger
@@ -23,6 +23,8 @@ let images = ['week 6 png/Cultist_dirt.png','week 6 png/Cultist_dirt2.png','week
 
 */
 let image_final = []//dit is for het loading van alle afbeeldingen
+
+let anim_move = 0;
 
 let X = 0
 
@@ -43,6 +45,7 @@ let button_food
 let button_energy
 let button_clean
 let button_happenis
+let button_redo
 
 function setup() {
   createCanvas(500, 500);
@@ -52,11 +55,13 @@ function setup() {
   button_energy = createButton("sleep")
   button_clean = createButton("clean")
   button_happenis = createButton("enjoyment")
+  button_redo = createButton("redo")
 
   button_food.mousePressed(buttonPressed_food)
   button_energy.mousePressed(buttonPressed_energy)
   button_clean.mousePressed(buttonPressed_clean)
   button_happenis.mousePressed(buttonPressed_happines)
+  button_redo.mousePressed(buttonPressed_redo)
 
   X = 100
   Y = 400
@@ -75,10 +80,13 @@ function setup() {
 
 // hier is waar de waarden van honger schoonheid energy en blijheid minder worden
   setInterval(food_drain,2000) // set interval is sort of like delta time
-  setInterval(energy_drain,5000)
+  setInterval(energy_drain,5000)// this does an action every 1000 miliseconden ( 1 seconden)
   setInterval(clean_drain,2500)
   setInterval(happy_drain,8000)
 
+  setInterval(anim_move_func,1000)//this here is for the 'animation'
+
+  //here reads the information that was stored
  food = getItem("fullnes",food)
  energy = getItem("energy",energy)
  clean = getItem("clean",clean)
@@ -86,7 +94,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background('brown');
 
   fill(0)// dit hier fill is voor de text
 
@@ -111,15 +119,6 @@ function draw() {
 
   text(deltaTime,20,140)
 
-   X = 100
-   Y = 100
-   size_X = 10
-   size_Y = 10
-
-   fill(100)
-
-   rect(X*3,Y,size_X,size_Y)
-
   frameRate(5)
 
  //this ensures that it cant go into the negatives
@@ -139,7 +138,7 @@ function draw() {
   happenis = 0
  }
 
- //hier stores all the information and reads it
+ //hier stores all the information
  storeItem("fullnes",food)
  storeItem("energy",energy)
  storeItem("clean",clean)
@@ -153,27 +152,24 @@ function draw() {
 
  
  //hier word het images geplaatst
-   if(food <= 25){
 
-    image(image_final[6],X,Y,size_X*2,size_Y*2)
+   if(food <= 35){
 
-   } else if(energy <= 25){
+    image(image_final[6 + anim_move],X,Y,size_X*2,size_Y*2)
 
-    image(image_final[10],X,Y,size_X*2,size_Y*2)
+   } else if(energy <= 35){
 
-   } else if(clean <= 25){
+    image(image_final[10 + anim_move],X,Y,size_X*2,size_Y*2)
 
-    image(image_final[0],X,Y,size_X*2,size_Y*2)
+   } else if(clean <= 35){
 
-   } else if(happenis <= 25){
+    image(image_final[0 + anim_move],X,Y,size_X*2,size_Y*2)
 
-    image(image_final[2],X,Y,size_X*2,size_Y*2)
+   } else if(happenis <= 35){
 
-   } else image(image_final[8],X,Y,size_X*2,size_Y*2)
+    image(image_final[2 + anim_move],X,Y,size_X*2,size_Y*2)
 
-
-
-  
+   } else image(image_final[8 + anim_move],X,Y,size_X*2,size_Y*2)
   
 }
 
@@ -184,17 +180,18 @@ function buttonPressed_food(){
  if(food >= 100){
   food = 100
  }
- clean -= 5
+ clean -= 2
 }
 function buttonPressed_energy(){
   food -= 10
   energy += 20
+  happenis -= 5
   if(energy >= 100){
     energy = 100
   }
 }
 function buttonPressed_clean(){
-  energy -= 10
+  energy -= 5
   clean += 10
     if(clean >= 100){
     clean = 100
@@ -210,7 +207,15 @@ function buttonPressed_happines(){
   }
 
 }
+function buttonPressed_redo(){
+  food = 100
+  energy = 100
+  clean = 100
+  happenis = 100
+}
 
+
+// here is where the drain of the variables happen
 function food_drain(){
   food -= 5
 }
@@ -222,4 +227,11 @@ function clean_drain(){
 }
 function happy_drain(){
  happenis -= 5
+}
+
+function anim_move_func(){ //this is for the 'animation'
+  anim_move++
+  if(anim_move > 1){
+    anim_move = 0
+  }
 }
