@@ -54,7 +54,7 @@ function setup() {
   button_food = createButton("feed")
   button_energy = createButton("sleep")
   button_clean = createButton("clean")
-  button_happenis = createButton("enjoyment")
+  button_happenis = createButton(" 'enjoyment'")
   button_redo = createButton("redo")
 
   button_food.mousePressed(buttonPressed_food)
@@ -71,7 +71,7 @@ function setup() {
   button_food.size(size_X,size_Y)
   button_energy.size(size_X,size_Y)
   button_clean.size(size_X,size_Y)
-  button_happenis.size(size_X,size_Y)
+  button_happenis.size(size_X *1.5,size_Y)
 
   button_food.position(X,Y)
   button_energy.position(X+(size_X),Y)
@@ -96,30 +96,53 @@ function setup() {
 function draw() {
   background('brown');
 
-  fill(0)// dit hier fill is voor de text
-
-  Y = 20
-  X = 20
-
-  text("fullness "+food,X,Y)
-
-  Y += 20
-
-  text("energy "+energy,X,Y)
-
-  Y += 20
-
-  text("cleanliness "+clean,X,Y)
-
-  Y += 20
-
-  text("happy "+happenis,X,Y)
-
-  text("framecount "+ frameCount,20,120)// voorbeeld om het frames to lezen
-
-  text(deltaTime,20,140)
-
   frameRate(5)
+
+  X = 100
+
+  Y = 100
+
+  size_X = 105
+
+  size_Y = 40
+
+  //dit hier is voor de visuelisatie van de variabelen
+  fill(150,150,150,150)
+  
+  //dit hier zijn perse de 'achtergrond' recthoeken
+  rect(X/10,Y/10,size_X,size_Y)
+
+  rect(X/10,Y/1.75,size_X,size_Y)
+
+  rect(X*1.2,Y/10,size_X,size_Y)
+
+  rect(X*1.2,Y/1.75,size_X,size_Y)
+
+  size_X = 0
+
+  //en hier is waar de variabelen worden gevisuieliseert
+  fill('#cfcd3f')
+  rect(X/10,Y/8.5,size_X+(food),size_Y*0.90)
+
+  fill('#3b3db9')
+  rect(X/10,Y/1.7,size_X+(energy),size_Y*0.90)
+
+  fill('#9637bf')
+  rect(X*1.2,Y/8.5,size_X+(clean),size_Y*0.90)
+
+  fill('#1add4e')
+  rect(X*1.2,Y/1.7,size_X+(happenis),size_Y*0.90)
+
+  fill(0)// hier is de text
+
+  text("fullness "+food,X/10,Y/3)
+
+  text("energy "+energy,X*1.2,Y/3)
+
+  text("cleanliness "+clean,X/10,Y/1.25)
+
+  text("happy "+happenis,X*1.2,Y/1.25)
+
 
  //this ensures that it cant go into the negatives
  if(food <= 0){
@@ -150,7 +173,6 @@ function draw() {
   size_X = 100
   size_Y = 120
 
- 
  //hier word het images geplaatst
 
    if(food <= 35){
@@ -201,7 +223,7 @@ function buttonPressed_happines(){
   energy -= 10
   food -= 5
   clean -= 5
-  happenis += 10
+  happenis += 15
     if(happenis >= 100){
     happenis = 100
   }
@@ -226,7 +248,7 @@ function clean_drain(){
   clean -= 2
 }
 function happy_drain(){
- happenis -= 5
+ happenis -= 10
 }
 
 function anim_move_func(){ //this is for the 'animation'
