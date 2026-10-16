@@ -10,7 +10,19 @@ let happenis = 100;
 
 let minigame1 = false;
 
-let button_hide = false;
+let button_hide = true;
+
+//for the victim values
+
+let victim_speed = 0;
+
+let victim_X = 0;
+
+let victim_Y = 0;
+
+let victim_sizeX
+
+let victim_sizeY
 
 //victim images
 let image_victim = ['week 6 png/victim1_alive.png','week 6 png/victim1_dead.png'];
@@ -220,10 +232,31 @@ function draw() {
    size_X = 500
    size_Y = 340
    if(minigame1 == true){
-    console.log("check")
     image(image_final_backround[0],X,Y,size_X,size_Y)
 
+    //here are values for the victim, used for later
+    victim_Y = 250
+
+    victim_sizeY = 500
+
+    victim_sizeX = 500
+
+    victim_speed = 20
+
+    victim_X += victim_speed
+  
+    image(image_victim_final[0],victim_X - 150,victim_Y,victim_sizeX/3,victim_sizeY/3)
+
+    if(victim_X >= 600){
+      victim_X = -100
+    }
+
+
+
    }
+
+   text(mouseX,20,120)
+   text(mouseY,20,140)
 }
 
 // hier zijn alle button functies
@@ -263,17 +296,17 @@ function buttonPressed_happines(){
     minigame1 = false
   } else {minigame1 = true}
 
-  console.log(button_clean)
-
     if(button_hide == false){
     button_clean.show()
     button_food.show()
     button_energy.show()
-    } else {
-      console.log("button")
+    button_hide = true
+    } else if(button_hide == true){
     button_clean.hide()
     button_food.hide()
-    button_energy.hide()}
+    button_energy.hide()
+    button_hide = false
+  }
 
    
 
@@ -306,3 +339,26 @@ function anim_move_func(){ //this is for the 'animation'
     anim_move = 0
   }
 }
+
+function mousePressed(){
+  let space = dist(mouseX,mouseY,victim_X,victim_Y)
+  if (minigame1 == true){
+    if(space < victim_sizeX - 100 && space < victim_Y - 100){
+      console.log(space)
+    }
+  }
+}
+
+/*
+ needle = needle + 50
+
+ if last key pressed is right arrows
+ then needle -= 50
+ else if last key pressed is left arrow
+ then needle += 50
+
+ hornet throw anim
+
+
+
+*/
