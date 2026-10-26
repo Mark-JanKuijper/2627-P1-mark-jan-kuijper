@@ -126,6 +126,8 @@ function setup() {
  happenis = getItem("happenis",happenis)
 }
 
+
+
 function draw() {
   background('brown');
 
@@ -243,9 +245,9 @@ function draw() {
 
     victim_speed = 20
 
-    victim_X += victim_speed
+    //victim_X += victim_speed
   
-    image(image_victim_final[0],victim_X - 150,victim_Y,victim_sizeX/3,victim_sizeY/3)
+    image(image_victim_final[0],victim_X /*- 150*/,victim_Y,victim_sizeX/3,victim_sizeY/3)
 
     if(victim_X >= 600){
       victim_X = -100
@@ -341,14 +343,17 @@ function anim_move_func(){ //this is for the 'animation'
 }
 
 function mousePressed(){
+
   let space = dist(mouseX,mouseY,victim_X,victim_Y)
+  
   if (minigame1 == true){
-    if(space < victim_sizeX - 100 && space < victim_Y - 100){
+    if(space < victim_sizeX && space < victim_Y){
       console.log(space)
     }
   }
 }
 
+// this is for helping rolf with something
 /*
  needle = needle + 50
 
