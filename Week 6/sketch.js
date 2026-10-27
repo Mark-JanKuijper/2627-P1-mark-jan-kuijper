@@ -16,6 +16,8 @@ let bodys = 0;
 
 //for the victim values
 
+let victim_dead = false;
+
 let victim_speed = 0;
 
 let victim_X = 0;
@@ -120,6 +122,8 @@ function setup() {
   setInterval(happy_drain,8000)
 
   setInterval(anim_move_func,1000)//this here is for the 'animation'
+
+  setInterval(victim_alive_func,3000)
 
   //here reads the information that was stored
  food = getItem("fullnes",food)
@@ -246,7 +250,13 @@ function draw() {
 
     victim_X += victim_speed
   
-    image(image_victim_final[0],victim_X -150,victim_Y,victim_sizeX/3,victim_sizeY/3)
+    if(victim_dead == false){
+      image(image_victim_final[0],victim_X -150,victim_Y,victim_sizeX/3,victim_sizeY/3)
+    } else if (victim_dead == true){
+      victim_X += - victim_speed // this makes it so that the victims stop moving
+      image(image_victim_final[1],victim_X -150,victim_Y,victim_sizeX/3,victim_sizeY/3)
+    }
+    
 
     if(victim_X >= 600){//this makes sure that the victim doesnt disapear of screen
       victim_X = -100
@@ -341,20 +351,30 @@ function anim_move_func(){ //this is for the 'animation'
   }
 }
 
-
+function victim_alive_func(){ //dit hier zorgt ervoor dat de victim altijd leeft
+  
+  if(victim_dead == true){
+    victim_X + random(-200,200)
+  }
+  victim_dead = false
+}
 // here is the mouse pressed funcions
 function mousePressed(){
   
   if (minigame1 == true){
     if(mouseX >= victim_X -150 && mouseX <= victim_X &&
       mouseY >= victim_Y && mouseY <= victim_Y + 175
-     ){
+     ){if(victim_dead == false){
+
+     
       bodys ++
       energy -= 10
       happenis += 25
       if(happenis > 100){
         happenis = 100
       }
+      victim_dead = true
+    }
     }
   }
 }
