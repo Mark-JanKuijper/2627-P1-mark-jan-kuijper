@@ -28,6 +28,12 @@ let victim_sizeX = 500;
 
 let victim_sizeY = 500;
 
+//sound effects
+
+let sound_effect
+
+let crossbow_sound1
+
 //victim images
 let image_victim = ['week 6 png/victim1_alive.png','week 6 png/victim1_dead.png'];
 
@@ -76,6 +82,9 @@ function preload(){//hier worden alle images geloadded in
    for(let i = 0; i < image_victim.length; i++){
     image_victim_final.push(loadImage(image_victim[i]))
   }
+
+  //here is sound effects
+  crossbow_sound1 = loadSound('sound effect week 6/crossbow_bolt_skewer1.wav') //you put sound effects in the same way as loading in images
 }
 // hier zijn alle buttons
 let button_food
@@ -123,7 +132,7 @@ function setup() {
 
   setInterval(anim_move_func,1000)//this here is for the 'animation'
 
-  setInterval(victim_alive_func,3000)
+  setInterval(victim_alive_func,2000)
 
   //here reads the information that was stored
  food = getItem("fullnes",food)
@@ -131,6 +140,10 @@ function setup() {
  clean = getItem("clean",clean)
  happenis = getItem("happenis",happenis)
  bodys = getItem("bodys",bodys)
+
+
+ //here setting the volume of the effects to ensure they dont blow your ears out
+ crossbow_sound1.setVolume(0.2)
 }
 
 
@@ -187,6 +200,8 @@ function draw() {
 
   text("body's "+bodys,X*2.5,Y/3)
 
+  text("to eat you need dead body's.",X*2.5,Y/2)
+
 
  //this ensures that it cant go into the negatives
  if(food <= 0){
@@ -220,7 +235,10 @@ function draw() {
 
  //hier word het images geplaatst
 
-   if(food <= 35){
+   if(food >= 75 && energy >= 75 && happenis >= 75 && clean >= 75){
+    image(image_final_cult[4 + anim_move],X,Y,size_X*2,size_Y*2)
+
+   } else  if(food <= 35){
 
     image(image_final_cult[6 + anim_move],X,Y,size_X*2,size_Y*2)
 
@@ -237,6 +255,8 @@ function draw() {
     image(image_final_cult[2 + anim_move],X,Y,size_X*2,size_Y*2)
 
    } else image(image_final_cult[8 + anim_move],X,Y,size_X*2,size_Y*2)
+
+  
   
    //here is the minigame section
    X = 0
@@ -265,9 +285,9 @@ function draw() {
 
 
    }
-
-   text(mouseX,20,120)
-   text(mouseY,20,140)
+ /*
+   text(mouseX,20,120) //this here is to read the mouse x and y position
+   text(mouseY,20,140) //for when it is needed of testing
   /*
    fill(120,120,120,100) //this here is more for demonstration of the "clickbox" for the victim
   rect(victim_X - 120,victim_Y,victim_sizeX/4.5,victim_sizeY/3)
@@ -285,6 +305,7 @@ function buttonPressed_food(){
   food = 100
  }
   }
+  
 }
 function buttonPressed_energy(){
   food -= 5
@@ -351,13 +372,15 @@ function anim_move_func(){ //this is for the 'animation'
   }
 }
 
-function victim_alive_func(){ //dit hier zorgt ervoor dat de victim altijd leeft
+function victim_alive_func(){ //dit hier zorgt ervoor dat de victim kan respawnen
   
   if(victim_dead == true){
-    victim_X + random(-200,200)
+    victim_X += round(random(-100,500))//hier maakt het dat warneer het victim respawns, is het dan in een andere locatie
   }
   victim_dead = false
 }
+
+
 // here is the mouse pressed funcions
 function mousePressed(){
   
@@ -366,9 +389,9 @@ function mousePressed(){
       mouseY >= victim_Y && mouseY <= victim_Y + 175
      ){if(victim_dead == false){
 
-     
+     crossbow_sound1.play()
       bodys ++
-      energy -= 10
+      energy -= 5
       happenis += 25
       if(happenis > 100){
         happenis = 100
