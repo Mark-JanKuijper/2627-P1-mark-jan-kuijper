@@ -12,17 +12,19 @@ let minigame1 = false;
 
 let button_hide = true;
 
+let bodys = 0;
+
 //for the victim values
 
 let victim_speed = 0;
 
 let victim_X = 0;
 
-let victim_Y = 0;
+let victim_Y = 250;
 
-let victim_sizeX
+let victim_sizeX = 500;
 
-let victim_sizeY
+let victim_sizeY = 500;
 
 //victim images
 let image_victim = ['week 6 png/victim1_alive.png','week 6 png/victim1_dead.png'];
@@ -124,6 +126,7 @@ function setup() {
  energy = getItem("energy",energy)
  clean = getItem("clean",clean)
  happenis = getItem("happenis",happenis)
+ bodys = getItem("bodys",bodys)
 }
 
 
@@ -178,6 +181,8 @@ function draw() {
 
   text("happy "+happenis,X*1.2,Y/1.25)
 
+  text("body's "+bodys,X*2.5,Y/3)
+
 
  //this ensures that it cant go into the negatives
  if(food <= 0){
@@ -201,6 +206,7 @@ function draw() {
  storeItem("energy",energy)
  storeItem("clean",clean)
  storeItem("happenis",happenis)
+ storeItem("bodys",bodys)
 
   X = 75
   Y = 100
@@ -236,20 +242,13 @@ function draw() {
    if(minigame1 == true){
     image(image_final_backround[0],X,Y,size_X,size_Y)
 
-    //here are values for the victim, used for later
-    victim_Y = 250
+    victim_speed = 20 //here is the speed of the victim
 
-    victim_sizeY = 500
-
-    victim_sizeX = 500
-
-    victim_speed = 20
-
-    //victim_X += victim_speed
+    victim_X += victim_speed
   
-    image(image_victim_final[0],victim_X /*- 150*/,victim_Y,victim_sizeX/3,victim_sizeY/3)
+    image(image_victim_final[0],victim_X -150,victim_Y,victim_sizeX/3,victim_sizeY/3)
 
-    if(victim_X >= 600){
+    if(victim_X >= 600){//this makes sure that the victim doesnt disapear of screen
       victim_X = -100
     }
 
@@ -259,19 +258,26 @@ function draw() {
 
    text(mouseX,20,120)
    text(mouseY,20,140)
+  /*
+   fill(120,120,120,100) //this here is more for demonstration of the "clickbox" for the victim
+  rect(victim_X - 120,victim_Y,victim_sizeX/4.5,victim_sizeY/3)
+  */
 }
 
 // hier zijn alle button functies
 function buttonPressed_food(){
- 
- food += 25
+
+  if(bodys > 0){
+    food += 25
+    bodys --
+    clean -= 2
  if(food >= 100){
   food = 100
  }
- clean -= 2
+  }
 }
 function buttonPressed_energy(){
-  food -= 10
+  food -= 5
   energy += 20
   happenis -= 5
   if(energy >= 100){
@@ -286,13 +292,6 @@ function buttonPressed_clean(){
   }
 }
 function buttonPressed_happines(){
-  energy -= 10
-  food -= 5
-  clean -= 5
-  happenis += 15
-    if(happenis >= 100){
-    happenis = 100
-  }
   
   if(minigame1 == true){
     minigame1 = false
@@ -342,13 +341,20 @@ function anim_move_func(){ //this is for the 'animation'
   }
 }
 
-function mousePressed(){
 
-  let space = dist(mouseX,mouseY,victim_X,victim_Y)
+// here is the mouse pressed funcions
+function mousePressed(){
   
   if (minigame1 == true){
-    if(space < victim_sizeX && space < victim_Y){
-      console.log(space)
+    if(mouseX >= victim_X -150 && mouseX <= victim_X &&
+      mouseY >= victim_Y && mouseY <= victim_Y + 175
+     ){
+      bodys ++
+      energy -= 10
+      happenis += 25
+      if(happenis > 100){
+        happenis = 100
+      }
     }
   }
 }
@@ -364,6 +370,10 @@ function mousePressed(){
 
  hornet throw anim
 
+ //this here is for pseudo code to making something
 
+if setinterval passes  i++ 
+ i = 150
 
-*/
+ 
+ */ 
