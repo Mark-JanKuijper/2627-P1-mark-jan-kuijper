@@ -54,7 +54,7 @@ let image_final_backround = [];
 let images_cultist = ['week 6 png/Cultist_dirt.png','week 6 png/Cultist_dirt2.png','week 6 png/Cultist_entertain.png','week 6 png/Cultist_entertain2.png',
   'week 6 png/Cultist_happy.png','week 6 png/Cultist_happy2.png','week 6 png/Cultist_hunger.png',
   'week 6 png/Cultist_hunger2.png','week 6 png/Cultist_neut.png','week 6 png/Cultist_neut2.png',
-  'week 6 png/Cultist_sleep.png','week 6 png/Cultist_sleep2.png'
+  'week 6 png/Cultist_sleep.png','week 6 png/Cultist_sleep2.png','week 6 png/Sign off.png'
 ]
 /*
  0 en 1 zijn voor viezigheid
@@ -63,6 +63,7 @@ let images_cultist = ['week 6 png/Cultist_dirt.png','week 6 png/Cultist_dirt2.pn
  6 en 7 zijn voor honger
  8 en 9 zijn voor neutraal
  10 en 11 zijn voor slaperigheid
+ 12 is voor sign off (losing the game)
 
 */
 let image_final_cult = []//dit is for het loading van alle afbeeldingen
@@ -135,6 +136,10 @@ function setup() {
   button_energy.position(X+(size_X),Y)
   button_clean.position(X+(size_X*2),Y)
   button_happenis.position(X+(size_X*3),Y)
+
+  button_redo.position(X/2,Y*1.05)
+
+  button_redo.hide()
 
 // hier is waar de waarden van honger schoonheid energy en blijheid minder worden
   setInterval(food_drain,2000) // set interval is sort of like delta time
@@ -259,7 +264,15 @@ function draw() {
    if(food >= 75 && energy >= 75 && happenis >= 75 && clean >= 75){
     image(image_final_cult[4 + anim_move],X,Y,size_X*2,size_Y*2)
 
-   } else  if(food <= 35){
+   } else if(food < 5 && energy < 5 && clean < 5 && happenis < 5){
+
+    image(image_final_cult[12],X,Y,size_X*2,size_Y*2)
+
+    textSize(20)
+    text("You lost your pet.",X*1.5,Y*3)
+    game_state = "off"
+
+   }  else if(food <= 35){
 
     image(image_final_cult[6 + anim_move],X,Y,size_X*2,size_Y*2)
 
@@ -277,16 +290,7 @@ function draw() {
 
    } else image(image_final_cult[8 + anim_move],X,Y,size_X*2,size_Y*2)
 
-
-   //here is where the game determindes if the pet is alive or dead
-   if(food > 5 && energy > 5 && clean > 5 && happenis > 5){
-  game_state = "on"
-  console.log(game_state)
- } else if (food < 5 && energy < 5 && clean < 5 && happenis < 5){
-  game_state = "off"
-  console.log(game_state)
- }
-
+textSize(10) //this here text size to ensure that nothing else is to big
   
    //here is the minigame section
    X = 0
@@ -311,10 +315,16 @@ function draw() {
     if(victim_X >= 600){//this makes sure that the victim doesnt disapear of screen
       victim_X = -100
     }
-
-
-
    }
+
+   //this here makes so that the redo button can show itself and hide itself
+   if(game_state == "on"){
+    button_redo.hide()
+   } else if(game_state == "off"){
+
+    button_redo.show()
+   } 
+   
  /*
    text(mouseX,20,120) //this here is to read the mouse x and y position
    text(mouseY,20,140) //for when it is needed of testing
@@ -327,6 +337,9 @@ function draw() {
 // hier zijn alle button functies
 function buttonPressed_food(){
 
+  
+  if(game_state == "on"){
+
   if(bodys > 0){
     food += 25
     bodys --
@@ -336,9 +349,10 @@ function buttonPressed_food(){
   food = 100
  }
   }
-  
+  }
 }
 function buttonPressed_energy(){
+  if(game_state == "on"){
   food -= 5
   energy += 20
   happenis -= 5
@@ -347,7 +361,10 @@ function buttonPressed_energy(){
     energy = 100
   }
 }
+}
 function buttonPressed_clean(){
+
+  if(game_state == "on"){
   energy -= 5
   clean += 10
   clean_sound1.play()
@@ -355,8 +372,11 @@ function buttonPressed_clean(){
     clean = 100
   }
 }
+}
 function buttonPressed_happines(){
-  
+
+  if(game_state == "on"){
+
   if(minigame1 == true){
     minigame1 = false
   } else {minigame1 = true}
@@ -372,15 +392,18 @@ function buttonPressed_happines(){
     button_energy.hide()
     button_hide = false
   }
-
-   
-
 }
+   
+}
+
+//here is the redo button
 function buttonPressed_redo(){
   food = 100
   energy = 100
   clean = 100
   happenis = 100
+  game_state = "on"
+  bodys = 0
 }
 
 
@@ -417,6 +440,7 @@ function victim_alive_func(){ //dit hier zorgt ervoor dat de victim kan respawne
 // here is the mouse pressed funcions
 function mousePressed(){
   
+if(game_state == "on"){
   if (minigame1 == true){
     if(mouseX >= victim_X -150 && mouseX <= victim_X &&
       mouseY >= victim_Y && mouseY <= victim_Y + 175
@@ -434,7 +458,7 @@ function mousePressed(){
     }
   }
 }
-
+}
 // this is for helping rolf with something
 /*
  needle = needle + 50
