@@ -14,6 +14,8 @@ let button_hide = true;
 
 let bodys = 0;
 
+let game_state = "on"
+
 //for the victim values
 
 let victim_dead = false;
@@ -30,7 +32,11 @@ let victim_sizeY = 500;
 
 //sound effects
 
-let sound_effect
+let eat_sound1
+
+let sleep_sound1
+
+let clean_sound1
 
 let crossbow_sound1
 
@@ -85,6 +91,12 @@ function preload(){//hier worden alle images geloadded in
 
   //here is sound effects
   crossbow_sound1 = loadSound('sound effect week 6/crossbow_bolt_skewer1.wav') //you put sound effects in the same way as loading in images
+
+  eat_sound1 = loadSound('sound effect week 6/eat.ogg')
+
+  clean_sound1 = loadSound('sound effect week 6/clean_bubble.mp3')
+
+  sleep_sound1 = loadSound('sound effect week 6/sleep.wav')
 }
 // hier zijn alle buttons
 let button_food
@@ -144,6 +156,12 @@ function setup() {
 
  //here setting the volume of the effects to ensure they dont blow your ears out
  crossbow_sound1.setVolume(0.2)
+
+ sleep_sound1.setVolume(1)
+
+ eat_sound1.setVolume(0.5)
+
+ clean_sound1.setVolume(0.5)
 }
 
 
@@ -202,6 +220,8 @@ function draw() {
 
   text("to eat you need dead body's.",X*2.5,Y/2)
 
+  text("to get dead body's you need to kill.",X*2.5,Y/1.5)
+
 
  //this ensures that it cant go into the negatives
  if(food <= 0){
@@ -235,6 +255,7 @@ function draw() {
 
  //hier word het images geplaatst
 
+
    if(food >= 75 && energy >= 75 && happenis >= 75 && clean >= 75){
     image(image_final_cult[4 + anim_move],X,Y,size_X*2,size_Y*2)
 
@@ -256,7 +277,16 @@ function draw() {
 
    } else image(image_final_cult[8 + anim_move],X,Y,size_X*2,size_Y*2)
 
-  
+
+   //here is where the game determindes if the pet is alive or dead
+   if(food > 5 && energy > 5 && clean > 5 && happenis > 5){
+  game_state = "on"
+  console.log(game_state)
+ } else if (food < 5 && energy < 5 && clean < 5 && happenis < 5){
+  game_state = "off"
+  console.log(game_state)
+ }
+
   
    //here is the minigame section
    X = 0
@@ -301,6 +331,7 @@ function buttonPressed_food(){
     food += 25
     bodys --
     clean -= 2
+    eat_sound1.play()
  if(food >= 100){
   food = 100
  }
@@ -311,6 +342,7 @@ function buttonPressed_energy(){
   food -= 5
   energy += 20
   happenis -= 5
+  sleep_sound1.play()
   if(energy >= 100){
     energy = 100
   }
@@ -318,6 +350,7 @@ function buttonPressed_energy(){
 function buttonPressed_clean(){
   energy -= 5
   clean += 10
+  clean_sound1.play()
     if(clean >= 100){
     clean = 100
   }
