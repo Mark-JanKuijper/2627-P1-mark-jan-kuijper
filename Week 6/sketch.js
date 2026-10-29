@@ -16,6 +16,8 @@ let bodys = 0;
 
 let game_state = "on"
 
+let help_page1 = false
+
 //for the victim values
 
 let victim_dead = false;
@@ -105,6 +107,7 @@ let button_energy
 let button_clean
 let button_happenis
 let button_redo
+let button_help
 
 function setup() {
   createCanvas(500, 500);
@@ -115,12 +118,14 @@ function setup() {
   button_clean = createButton("clean")
   button_happenis = createButton(" 'enjoyment'")
   button_redo = createButton("redo")
+  button_help = createButton("help")
 
   button_food.mousePressed(buttonPressed_food)
   button_energy.mousePressed(buttonPressed_energy)
   button_clean.mousePressed(buttonPressed_clean)
   button_happenis.mousePressed(buttonPressed_happines)
   button_redo.mousePressed(buttonPressed_redo)
+  button_help.mousePressed(buttonPressed_help)
 
   X = 100
   Y = 438 //dit hier is precies 438 zodat de buttons netjes op de "grond" zitten
@@ -136,6 +141,7 @@ function setup() {
   button_energy.position(X+(size_X),Y)
   button_clean.position(X+(size_X*2),Y)
   button_happenis.position(X+(size_X*3),Y)
+  button_help.position(X*4.5,Y/20)
 
   button_redo.position(X/2,Y*1.05)
 
@@ -223,10 +229,6 @@ function draw() {
 
   text("body's "+bodys,X*2.5,Y/3)
 
-  text("to eat you need dead body's.",X*2.5,Y/2)
-
-  text("to get dead body's you need to kill.",X*2.5,Y/1.5)
-
 
  //this ensures that it cant go into the negatives
  if(food <= 0){
@@ -290,7 +292,7 @@ function draw() {
 
    } else image(image_final_cult[8 + anim_move],X,Y,size_X*2,size_Y*2)
 
-textSize(10) //this here text size to ensure that nothing else is to big
+
   
    //here is the minigame section
    X = 0
@@ -325,6 +327,30 @@ textSize(10) //this here text size to ensure that nothing else is to big
     button_redo.show()
    } 
    
+   X = 50
+   Y = 100
+   size_X = 50
+   size_Y = 100
+   //this here is for the help page
+   if(help_page1 == true){
+    fill("#56b35d")
+    rect(X,Y,size_X*8.8,size_Y*3)
+    
+    textSize(20)
+    fill(0)
+    text("You have reached the help page!",X,Y*1.2)
+    text("1. Click on the clean button to clean your pet.",X,Y*1.5)
+    text("2. Click on the sleep button so that",X,Y*1.8)
+    text("your pet can gain energy.",X,Y*2.1)
+    text("3. Click on 'enjoyment', and then click on the",X,Y*2.4)
+    text("victims walking pas to gain happenis and body's.",X,Y*2.7)
+    text("4. When you have body's, click on feed to",X,Y*3)
+    text("satiate your pet.",X,Y*3.3)
+    text("5. When you fail, click on the redo button",X,Y*3.6)
+    text("to begin again.",X,Y*3.9)
+   }
+   textSize(10)//this here text size to ensure that nothing else is to big
+
  /*
    text(mouseX,20,120) //this here is to read the mouse x and y position
    text(mouseY,20,140) //for when it is needed of testing
@@ -337,7 +363,6 @@ textSize(10) //this here text size to ensure that nothing else is to big
 // hier zijn alle button functies
 function buttonPressed_food(){
 
-  
   if(game_state == "on"){
 
   if(bodys > 0){
@@ -351,6 +376,7 @@ function buttonPressed_food(){
   }
   }
 }
+
 function buttonPressed_energy(){
   if(game_state == "on"){
   food -= 5
@@ -362,6 +388,7 @@ function buttonPressed_energy(){
   }
 }
 }
+
 function buttonPressed_clean(){
 
   if(game_state == "on"){
@@ -373,6 +400,7 @@ function buttonPressed_clean(){
   }
 }
 }
+
 function buttonPressed_happines(){
 
   if(game_state == "on"){
@@ -404,6 +432,13 @@ function buttonPressed_redo(){
   happenis = 100
   game_state = "on"
   bodys = 0
+}
+
+function buttonPressed_help(){
+  if(help_page1 == true){
+    help_page1 = false
+  } else help_page1 = true
+  
 }
 
 
@@ -450,6 +485,7 @@ if(game_state == "on"){
       bodys ++
       energy -= 5
       happenis += 25
+      clean -= 2
       if(happenis > 100){
         happenis = 100
       }
