@@ -348,8 +348,8 @@ function draw() {
     text("2. Click on the sleep button so that",X,Y*1.8)
     text("your pet can gain energy.",X,Y*2.1)
     text("3. Click on 'enjoyment', and then click on the",X,Y*2.4) // it would be more efficient if it was a image but i was lazy and didnt want to make another image
-    text("victims walking pas to gain happenis and body's.",X,Y*2.7)
-    text("4. When you have body's, click on feed to",X,Y*3)
+    text("victims walking past to gain happiness and bodies.",X,Y*2.7)
+    text("4. When you have bodies, click on feed to",X,Y*3)
     text("satiate your pet.",X,Y*3.3)
     text("5. When you fail, click on the redo button",X,Y*3.6)
     text("to begin again.",X,Y*3.9)
