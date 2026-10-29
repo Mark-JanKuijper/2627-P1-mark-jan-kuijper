@@ -327,11 +327,13 @@ function draw() {
     button_redo.show()
    } 
    
+
+   //this here is for the help page
    X = 50
    Y = 100
    size_X = 50
    size_Y = 100
-   //this here is for the help page
+   
    if(help_page1 == true){
     fill("#56b35d")
     rect(X,Y,size_X*8.8,size_Y*3)
@@ -342,7 +344,7 @@ function draw() {
     text("1. Click on the clean button to clean your pet.",X,Y*1.5)
     text("2. Click on the sleep button so that",X,Y*1.8)
     text("your pet can gain energy.",X,Y*2.1)
-    text("3. Click on 'enjoyment', and then click on the",X,Y*2.4)
+    text("3. Click on 'enjoyment', and then click on the",X,Y*2.4) // it would be more efficient if it was a image but i was lazy and didnt want to make another image
     text("victims walking pas to gain happenis and body's.",X,Y*2.7)
     text("4. When you have body's, click on feed to",X,Y*3)
     text("satiate your pet.",X,Y*3.3)
