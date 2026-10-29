@@ -227,8 +227,11 @@ function draw() {
 
   text("happy "+happenis,X*1.2,Y/1.25)
 
-  text("body's "+bodys,X*2.5,Y/3)
+  textSize(20)
 
+  text("body's : "+bodys,X*2.5,Y/3)
+
+  textSize(10)
 
  //this ensures that it cant go into the negatives
  if(food <= 0){
